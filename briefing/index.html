@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonar — App Intelligence Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* -- Reset & Base ----------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #12131a;
+  --card:      #161820;
+  --border:    #1e2030;
+  --amber:     #e8a030;
+  --red:       #cc3333;
+  --green:     #2a9a5a;
+  --text:      #e8e4d8;
+  --dim:       #6b7088;
+  --mono:      'DM Mono', monospace;
+  --sans:      'DM Sans', sans-serif;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a { color: var(--amber); text-decoration: none; }
+
+/* -- Topbar ----------------------------------------------------------------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  background: #0e0f15;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.topbar-logo {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+}
+.topbar-sep { color: var(--border); font-size: 18px; }
+.topbar-meta { font-size: 12px; color: var(--dim); font-family: var(--mono); }
+.live-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--green);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.live-dot::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(42,154,90,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 5px rgba(42,154,90,0); }
+}
+.topbar-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.bootstrap-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #1a1500;
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  font-family: var(--mono);
+  letter-spacing: 0.05em;
+}
+
+/* -- Ticker ----------------------------------------------------------------- */
+.ticker-wrapper {
+  overflow: hidden;
+  background: #0e0f15;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
+}
+.ticker-track {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-flex;
+  align-items: center;
+  animation: ticker-scroll 30s linear infinite;
+}
+.ticker-inner:hover {
+  animation-play-state: paused;
+}
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 20px;
+  font-size: 12px;
+}
+.ticker-barclays { background: rgba(232,160,48,0.06); border-radius: 4px; }
+.ticker-name { font-weight: 600; letter-spacing: 0.02em; }
+.ticker-score { font-family: var(--mono); font-size: 13px; font-weight: 500; }
+.ticker-delta { font-size: 11px; }
+.ticker-sep { color: var(--border); padding: 0 4px; }
+
+/* -- Mini Bar --------------------------------------------------------------- */
+.mini-bar {
+  display: inline-flex;
+  align-items: center;
+  width: 60px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.mini-bar-fill {
+  height: 4px;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* -- Journey Row ------------------------------------------------------------ */
+.journey-row {
+  display: flex;
+  gap: 1px;
+  background: var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.journey-cell {
+  flex: 1;
+  padding: 12px 16px;
+  background: var(--card);
+  cursor: default;
+  transition: background 0.15s;
+}
+.journey-cell:hover { background: #1a1c28; }
+.journey-cell-name { font-size: 11px; color: var(--dim); font-weight: 500; margin-bottom: 4px; }
+.journey-cell-score { font-size: 22px; font-weight: 700; font-family: var(--mono); margin-bottom: 4px; }
+.journey-cell-meta { display: flex; align-items: center; gap: 6px; }
+.traj-icon { font-size: 14px; }
+.journey-status-label { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; }
+
+/* -- Metrics Strip ---------------------------------------------------------- */
+.metrics-strip {
+  display: flex;
+  gap: 1px;
+  background: var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.metric-card {
+  flex: 1;
+  padding: 16px 20px;
+  background: var(--card);
+}
+.metric-value { font-size: 32px; font-weight: 700; font-family: var(--mono); line-height: 1; margin-bottom: 4px; }
+.metric-label { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--text); }
+.metric-sub { font-size: 11px; color: var(--dim); margin-top: 2px; }
+
+/* -- Body Layout ------------------------------------------------------------ */
+.body-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1px;
+  background: var(--border);
+  min-height: calc(100vh - 200px);
+}
+.left-col { background: var(--bg); padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.right-col { background: var(--bg); padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+
+/* -- Journey Cards ---------------------------------------------------------- */
+.journey-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.rank-num {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dim);
+  min-width: 24px;
+}
+.journey-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+}
+.badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.derived-note {
+  font-size: 10px;
+  font-family: var(--mono);
+  color: var(--amber);
+  background: rgba(232,160,48,0.08);
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+}
+.verdict-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+}
+.verdict-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+.verdict-baseline {
+  color: var(--dim);
+  font-weight: 400;
+  font-style: italic;
+}
+.version-delta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.version-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+  background: #0d0e14;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.version-delta {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  background: #0d0e14;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.signal-counts {
+  display: flex;
+  gap: 8px;
+}
+.sig-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.sig-p1 { background: rgba(204,51,51,0.15); color: #ff6666; }
+.sig-p2 { background: rgba(232,160,48,0.12); color: var(--amber); }
+.voice-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+}
+.pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.pill-neg { background: rgba(204,51,51,0.15); color: #ff6666; border: 1px solid rgba(204,51,51,0.2); }
+.pill-pos { background: rgba(42,154,90,0.15); color: #4ad88a; border: 1px solid rgba(42,154,90,0.2); }
+.market-note { font-size: 11px; color: var(--dim); font-style: italic; }
+
+/* -- Right Panel ------------------------------------------------------------ */
+.panel-section { display: flex; flex-direction: column; gap: 10px; }
+.panel-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* -- Inference Card --------------------------------------------------------- */
+.inference-card {
+  background: #12140a;
+  border: 1px solid var(--amber);
+  border-radius: 6px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.inference-header { display: flex; align-items: center; gap: 8px; }
+.inference-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: var(--amber); }
+.severity-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.severity-p0 { background: rgba(204,51,51,0.3); color: #ff4444; }
+.severity-p1 { background: rgba(204,51,51,0.15); color: #ff6666; }
+.inference-finding { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4; }
+.blind-spots { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 4px; }
+.blind-spot-item { font-size: 11px; color: var(--dim); padding-left: 12px; position: relative; }
+.blind-spot-item::before { content: '⚠'; position: absolute; left: 0; font-size: 9px; color: var(--amber); }
+.chronicle-anchor { font-family: var(--mono); font-size: 11px; color: var(--amber); }
+.inference-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.action-btn {
+  background: #1a1500;
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.action-btn:hover { background: rgba(232,160,48,0.15); }
+
+/* -- Chronicle -------------------------------------------------------------- */
+.chronicle-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.chronicle-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.chronicle-id { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--amber); }
+.chronicle-bank { font-size: 12px; font-weight: 600; color: var(--text); flex: 1; }
+.chronicle-date { font-size: 10px; color: var(--dim); font-family: var(--mono); }
+.chronicle-active {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: rgba(204,51,51,0.2);
+  color: #ff6666;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+.chronicle-hold {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: rgba(107,112,136,0.2);
+  color: var(--dim);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+.chronicle-cap {
+  font-size: 9px;
+  color: var(--amber);
+  background: rgba(232,160,48,0.1);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+.chronicle-type { font-size: 11px; color: var(--text); font-weight: 500; }
+.chronicle-impact { font-size: 11px; color: var(--amber); font-weight: 600; font-family: var(--mono); }
+
+/* -- Sources Grid ----------------------------------------------------------- */
+.sources-grid { display: flex; flex-direction: column; gap: 6px; }
+.source-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+}
+.source-item:last-child { border-bottom: none; }
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-green { background: var(--green); box-shadow: 0 0 4px rgba(42,154,90,0.6); }
+.dot-amber { background: var(--amber); box-shadow: 0 0 4px rgba(232,160,48,0.5); }
+.dot-grey { background: #3a3d52; }
+.source-name { font-size: 12px; color: var(--text); flex: 1; }
+.source-weight { font-family: var(--mono); font-size: 11px; color: var(--dim); }
+
+/* -- Delta ------------------------------------------------------------------ */
+.delta { font-family: var(--mono); font-size: 11px; font-weight: 600; }
+.delta-na { font-family: var(--mono); font-size: 11px; color: var(--dim); }
+
+/* -- Defaults Banner -------------------------------------------------------- */
+.defaults-banner {
+  margin: 12px 24px;
+  padding: 10px 16px;
+  background: rgba(232,160,48,0.08);
+  border: 1px solid rgba(232,160,48,0.2);
+  border-radius: 5px;
+  font-size: 11px;
+  color: var(--amber);
+}
+.defaults-banner ul { padding-left: 16px; margin-top: 4px; }
+.defaults-banner li { margin-top: 2px; }
+
+/* -- Footer ----------------------------------------------------------------- */
+.footer {
+  background: #0e0f15;
+  border-top: 1px solid var(--border);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-item { font-size: 11px; color: var(--dim); font-family: var(--mono); }
+.footer-sep { color: var(--border); }
+.footer-sovereign {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  background: rgba(232,160,48,0.08);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+/* -- Ask Sonar Button ------------------------------------------------------- */
+.ask-sonar-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--amber);
+  color: #12131a;
+  border: none;
+  border-radius: 28px;
+  padding: 12px 22px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(232,160,48,0.4);
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ask-sonar-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(232,160,48,0.55);
+}
+.ask-sonar-btn svg { width: 16px; height: 16px; }
+
+/* -- Chat Panel ------------------------------------------------------------- */
+.chat-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+.chat-panel {
+  position: fixed;
+  bottom: 80px;
+  right: 24px;
+  width: 360px;
+  max-height: 500px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: none;
+  flex-direction: column;
+  z-index: 1001;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+.chat-panel.open { display: flex; }
+.chat-header {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chat-title { font-size: 13px; font-weight: 700; color: var(--text); flex: 1; }
+.chat-close {
+  background: none;
+  border: none;
+  color: var(--dim);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 4px;
+}
+.chat-close:hover { color: var(--text); }
+.chat-messages {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 160px;
+}
+.chat-chips {
+  padding: 8px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-top: 1px solid var(--border);
+}
+.chip {
+  background: #1a1c28;
+  color: var(--amber);
+  border: 1px solid rgba(232,160,48,0.25);
+  border-radius: 14px;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.chip:hover { background: rgba(232,160,48,0.12); }
+.chat-input-row {
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+}
+.chat-input {
+  flex: 1;
+  background: #0e0f15;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--text);
+  outline: none;
+}
+.chat-input:focus { border-color: var(--amber); }
+.chat-send {
+  background: var(--amber);
+  color: #12131a;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+.chat-msg {
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+.chat-msg.system { background: #1a1c28; color: var(--text); }
+.chat-msg.user { background: rgba(232,160,48,0.1); color: var(--amber); align-self: flex-end; }
+.chat-msg.error { background: rgba(204,51,51,0.1); color: #ff6666; }
+
+/* -- Responsive ------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .body-wrapper { grid-template-columns: 1fr; }
+  .metrics-strip { flex-wrap: wrap; }
+  .metric-card { min-width: 45%; }
+  .journey-row { flex-wrap: wrap; }
+  .journey-cell { min-width: 45%; }
+}
+</style>
+</head>
+<body>
+
+<!-- -- Topbar -------------------------------------------------------------- -->
+<div class="topbar">
+  <div class="topbar-logo">SONAR / APP INTELLIGENCE</div>
+  <span class="topbar-sep">|</span>
+  <div class="topbar-meta">v8.20.1</div>
+  <span class="topbar-sep">|</span>
+  <div class="topbar-meta">2026-03-28 14:02 UTC</div>
+  <div class="topbar-right">
+    <span class='bootstrap-badge'>BASELINE ESTABLISHING</span>
+    <div class="live-dot">LIVE</div>
+  </div>
+</div>
+
+<!-- -- Sentiment Ticker ---------------------------------------------------- -->
+<div class="ticker-wrapper">
+  <div class="ticker-track"><div class="ticker-inner"><span class="ticker-item"><span class="ticker-name" style="color:#e8a030;">NatWest</span><span class="ticker-score" style="color:#e8a030;">64.0</span><span class="mini-bar"><span class="mini-bar-fill" style="width:26px;background:#e8a030;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span><span class="ticker-item"><span class="ticker-name" style="color:#2a9a5a;">Lloyds</span><span class="ticker-score" style="color:#2a9a5a;">68.5</span><span class="mini-bar"><span class="mini-bar-fill" style="width:27px;background:#2a9a5a;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span><span class="ticker-item"><span class="ticker-name" style="color:#6b7088;">HSBC</span><span class="ticker-score" style="color:#6b7088;">—</span><span class="mini-bar"><span class="mini-bar-fill" style="width:0px;background:#6b7088;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span><span class="ticker-item"><span class="ticker-name" style="color:#2a9a5a;">Monzo</span><span class="ticker-score" style="color:#2a9a5a;">83.0</span><span class="mini-bar"><span class="mini-bar-fill" style="width:33px;background:#2a9a5a;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span><span class="ticker-item"><span class="ticker-name" style="color:#2a9a5a;">Revolut</span><span class="ticker-score" style="color:#2a9a5a;">84.0</span><span class="mini-bar"><span class="mini-bar-fill" style="width:34px;background:#2a9a5a;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span><span class="ticker-item ticker-barclays"><span class="ticker-name" style="color:#e8a030;">Barclays</span><span class="ticker-score" style="color:#e8a030;">88.8</span><span class="mini-bar"><span class="mini-bar-fill" style="width:36px;background:#2a9a5a;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span><span class="ticker-item"><span class="ticker-name" style="color:#e8a030;">NatWest</span><span class="ticker-score" style="color:#e8a030;">64.0</span><span class="mini-bar"><span class="mini-bar-fill" style="width:26px;background:#e8a030;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span><span class="ticker-item"><span class="ticker-name" style="color:#2a9a5a;">Lloyds</span><span class="ticker-score" style="color:#2a9a5a;">68.5</span><span class="mini-bar"><span class="mini-bar-fill" style="width:27px;background:#2a9a5a;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span><span class="ticker-item"><span class="ticker-name" style="color:#6b7088;">HSBC</span><span class="ticker-score" style="color:#6b7088;">—</span><span class="mini-bar"><span class="mini-bar-fill" style="width:0px;background:#6b7088;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span><span class="ticker-item"><span class="ticker-name" style="color:#2a9a5a;">Monzo</span><span class="ticker-score" style="color:#2a9a5a;">83.0</span><span class="mini-bar"><span class="mini-bar-fill" style="width:33px;background:#2a9a5a;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span><span class="ticker-item"><span class="ticker-name" style="color:#2a9a5a;">Revolut</span><span class="ticker-score" style="color:#2a9a5a;">84.0</span><span class="mini-bar"><span class="mini-bar-fill" style="width:34px;background:#2a9a5a;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span><span class="ticker-item ticker-barclays"><span class="ticker-name" style="color:#e8a030;">Barclays</span><span class="ticker-score" style="color:#e8a030;">88.8</span><span class="mini-bar"><span class="mini-bar-fill" style="width:36px;background:#2a9a5a;"></span></span><span class="ticker-delta"><span class="delta-na">—</span></span></span><span class="ticker-sep">-</span></div></div>
+</div>
+
+<!-- -- Journey Sentiment Row ----------------------------------------------- -->
+<div class="journey-row"><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Login &amp; Auth</div><div class="journey-cell-score" style="color:var(--red);">15</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--red);">↘</span><span class="journey-status-label" style="color:var(--red);">REGRESSION</span></div></div><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Payments</div><div class="journey-cell-score" style="color:var(--red);">74</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--red);">↘</span><span class="journey-status-label" style="color:var(--red);">REGRESSION</span></div></div><div class="journey-cell" style="border-top:3px solid var(--green);"><div class="journey-cell-name">Onboarding</div><div class="journey-cell-score" style="color:var(--green);">—</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--green);">↗</span><span class="journey-status-label" style="color:var(--green);">PERFORMING WELL</span></div></div><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Loans — Step 3</div><div class="journey-cell-score" style="color:var(--red);">8</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--red);">↘</span><span class="journey-status-label" style="color:var(--red);">REGRESSION</span></div></div><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Servicing</div><div class="journey-cell-score" style="color:var(--red);">82</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--red);">↘</span><span class="journey-status-label" style="color:var(--red);">REGRESSION</span></div></div></div>
+
+<!-- -- Metrics Strip ------------------------------------------------------- -->
+<div class="metrics-strip"><div class="metric-card"><div class="metric-value" style="color:var(--red);">4</div><div class="metric-label">Needs Attention</div><div class="metric-sub">REGRESSION journeys</div></div><div class="metric-card"><div class="metric-value" style="color:var(--amber);">0</div><div class="metric-label">Watch</div><div class="metric-sub">WATCH journeys</div></div><div class="metric-card"><div class="metric-value" style="color:var(--green);">1</div><div class="metric-label">Performing Well</div><div class="metric-sub">across all sources</div></div><div class="metric-card"><div class="metric-value" style="color:var(--amber);">88.8</div><div class="metric-label">Barclays Sentiment</div><div class="metric-sub">brand competitor</div></div></div>
+
+<div class="defaults-banner"><strong>Safe defaults applied:</strong><ul><li>mil_findings.json empty — sentiment derived from raw signals</li></ul></div>
+
+<!-- -- Body ---------------------------------------------------------------- -->
+<div class="body-wrapper">
+
+  <!-- Left: Journey Stack -->
+  <div class="left-col">
+    
+<div class="journey-card" style="border-left:3px solid var(--red);">
+  <div class="card-header">
+    <span class="rank-num">#1</span>
+    <span class="journey-name">Servicing</span>
+    <span class="badge" style="color:var(--red);background:#2a0a0a;">REGRESSION</span>
+  </div>
+  <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
+  <div class="verdict-label">VERDICT</div>
+  <div class="verdict-text">App is slow to load on first start up, and when moving through the app. Constant upselling for credit cards and loans wi…</div>
+  <div class="version-delta-row">
+    <span class="version-label">v8.20.1</span>
+    <code class="version-delta" style="color:#6b7088;">— no baseline</code>
+  </div>
+  <div class="signal-counts">
+    <span class="sig-count sig-p1">P1: 41</span>
+    <span class="sig-count sig-p2">P2: 58</span>
+  </div>
+  <div class='voice-label'>CUSTOMER VOICE</div><div class='pills'><span class="pill pill-neg">error</span><span class="pill pill-neg">crash</span><span class="pill pill-neg">fix</span><span class="pill pill-neg">fail</span><span class="pill pill-neg">issue</span><span class="pill pill-pos">great</span><span class="pill pill-pos">amazing</span><span class="pill pill-pos">simple</span></div>
+  <div class="market-note">Market signal analysis — public app store data - 4.29 avg rating</div>
+</div>
+
+<div class="journey-card" style="border-left:3px solid var(--red);">
+  <div class="card-header">
+    <span class="rank-num">#2</span>
+    <span class="journey-name">Login &amp; Auth</span>
+    <span class="badge" style="color:var(--red);background:#2a0a0a;">REGRESSION</span>
+  </div>
+  <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
+  <div class="verdict-label">VERDICT</div>
+  <div class="verdict-text">Update takes piss, barely works, have to remember a 10 digit password</div>
+  <div class="version-delta-row">
+    <span class="version-label">v10.122.1</span>
+    <code class="version-delta" style="color:#6b7088;">— no baseline</code>
+  </div>
+  <div class="signal-counts">
+    <span class="sig-count sig-p1">P1: 9</span>
+    <span class="sig-count sig-p2">P2: 9</span>
+  </div>
+  <div class='voice-label'>CUSTOMER VOICE</div><div class='pills'><span class="pill pill-neg">error</span><span class="pill pill-neg">crash</span><span class="pill pill-neg">fix</span><span class="pill pill-neg">issue</span><span class="pill pill-neg">problem</span><span class="pill pill-pos">easy</span><span class="pill pill-pos">great</span><span class="pill pill-pos">fast</span></div>
+  <div class="market-note">Market signal analysis — public app store data - 1.62 avg rating</div>
+</div>
+
+<div class="journey-card" style="border-left:3px solid var(--red);">
+  <div class="card-header">
+    <span class="rank-num">#3</span>
+    <span class="journey-name">Payments</span>
+    <span class="badge" style="color:var(--red);background:#2a0a0a;">REGRESSION</span>
+  </div>
+  <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
+  <div class="verdict-label">VERDICT</div>
+  <div class="verdict-text">Not sure why the process to pay credit card from another bank has changed to mean I have log in to another digital banki…</div>
+  <div class="version-delta-row">
+    <span class="version-label">v8.20.1</span>
+    <code class="version-delta" style="color:#6b7088;">— no baseline</code>
+  </div>
+  <div class="signal-counts">
+    <span class="sig-count sig-p1">P1: 5</span>
+    <span class="sig-count sig-p2">P2: 5</span>
+  </div>
+  <div class='voice-label'>CUSTOMER VOICE</div><div class='pills'><span class="pill pill-neg">fail</span><span class="pill pill-neg">issue</span><span class="pill pill-neg">awful</span><span class="pill pill-neg">pending</span><span class="pill pill-pos">love</span></div>
+  <div class="market-note">Market signal analysis — public app store data - 3.95 avg rating</div>
+</div>
+
+<div class="journey-card" style="border-left:3px solid var(--red);">
+  <div class="card-header">
+    <span class="rank-num">#4</span>
+    <span class="journey-name">Loans — Step 3</span>
+    <span class="badge" style="color:var(--red);background:#2a0a0a;">REGRESSION</span>
+  </div>
+  <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
+  <div class="verdict-label">VERDICT</div>
+  <div class="verdict-text">I&#x27;ve been experiencing an issue with the credit score section ever since I took out a loan with Lloyds. It hasn&#x27;t been w…</div>
+  <div class="version-delta-row">
+    <span class="version-label">v10.122.1</span>
+    <code class="version-delta" style="color:#6b7088;">— no baseline</code>
+  </div>
+  <div class="signal-counts">
+    <span class="sig-count sig-p1">P1: 5</span>
+    <span class="sig-count sig-p2">P2: 0</span>
+  </div>
+  <div class='voice-label'>CUSTOMER VOICE</div><div class='pills'><span class="pill pill-neg">error</span><span class="pill pill-neg">fix</span><span class="pill pill-neg">issue</span><span class="pill pill-neg">problem</span><span class="pill pill-neg">terrible</span></div>
+  <div class="market-note">Market signal analysis — public app store data - 1.33 avg rating</div>
+</div>
+
+<div class="journey-card" style="border-left:3px solid var(--green);">
+  <div class="card-header">
+    <span class="rank-num">#5</span>
+    <span class="journey-name">Onboarding</span>
+    <span class="badge" style="color:var(--green);background:#0a1e10;">PERFORMING WELL</span>
+  </div>
+  <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
+  <div class="verdict-label">VERDICT</div>
+  <div class="verdict-text verdict-baseline">Baseline establishing — check back tomorrow</div>
+  <div class="version-delta-row">
+    <span class="version-label">v—</span>
+    <code class="version-delta" style="color:#6b7088;">— no baseline</code>
+  </div>
+  <div class="signal-counts">
+    <span class="sig-count sig-p1">P1: 0</span>
+    <span class="sig-count sig-p2">P2: 0</span>
+  </div>
+  
+  <div class="market-note">Market signal analysis — public app store data - 0.00 avg rating</div>
+</div>
+
+  </div>
+
+  <!-- Right: Side Panel -->
+  <div class="right-col">
+    
+    
+<div class="panel-section">
+  <div class="panel-title">CHRONICLE — Failure Library</div>
+  
+<div class="chronicle-card">
+  <div class="chronicle-header">
+    <span class="chronicle-id">CHR-001</span>
+    <span class="chronicle-bank">TSB Bank</span>
+    <span class="chronicle-date">April 2018</span>
+    
+  </div>
+  <div class="chronicle-type">Core Banking Migration Failure</div>
+  <div class="chronicle-impact">£48.65M fine - 225,492 complaints - 1.9M locked out - 8 months disruption</div>
+</div>
+
+<div class="chronicle-card">
+  <div class="chronicle-header">
+    <span class="chronicle-id">CHR-002</span>
+    <span class="chronicle-bank">Lloyds Banking Group</span>
+    <span class="chronicle-date">March 2025</span>
+    <span class="chronicle-cap">CAP 0.6 — PARTIAL</span>
+  </div>
+  <div class="chronicle-type">API Defect — Data Exposure</div>
+  <div class="chronicle-impact">447,936 exposed - 114,182 viewed wrong data - £139K compensation</div>
+</div>
+
+<div class="chronicle-card">
+  <div class="chronicle-header">
+    <span class="chronicle-id">CHR-003</span>
+    <span class="chronicle-bank">HSBC UK</span>
+    <span class="chronicle-date">August 2025</span>
+    <span class="chronicle-hold">INFERENCE HOLD</span>
+  </div>
+  <div class="chronicle-type">App &amp; Online Banking Outage</div>
+  <div class="chronicle-impact">4,000+ DownDetector reports - ~5hr outage - ERR03 pattern</div>
+</div>
+
+</div>
+
+    
+<div class="panel-section">
+  <div class="panel-title">Signal Sources</div>
+  <div class="sources-grid"><div class="source-item"><span class="dot dot-grey"></span><span class="source-name">DownDetector</span><span class="source-weight">0.95</span></div><div class="source-item"><span class="dot dot-green"></span><span class="source-name">App Store</span><span class="source-weight">0.90</span></div><div class="source-item"><span class="dot dot-green"></span><span class="source-name">Google Play</span><span class="source-weight">0.90</span></div><div class="source-item"><span class="dot dot-green"></span><span class="source-name">Financial Times</span><span class="source-weight">0.90</span></div><div class="source-item"><span class="dot dot-green"></span><span class="source-name">City A.M.</span><span class="source-weight">0.90</span></div><div class="source-item"><span class="dot dot-grey"></span><span class="source-name">Reddit</span><span class="source-weight">0.85</span></div><div class="source-item"><span class="dot dot-grey"></span><span class="source-name">Trustpilot</span><span class="source-weight">0.80</span></div><div class="source-item"><span class="dot dot-amber"></span><span class="source-name">Facebook</span><span class="source-weight">0.75</span></div><div class="source-item"><span class="dot dot-green"></span><span class="source-name">YouTube</span><span class="source-weight">0.75</span></div><div class="source-item"><span class="dot dot-grey"></span><span class="source-name">Twitter/X</span><span class="source-weight">0.60</span></div></div>
+</div>
+
+  </div>
+
+</div>
+
+<!-- -- Footer -------------------------------------------------------------- -->
+<div class="footer">
+  <span class="footer-item">INFERENCE LOCAL</span>
+  <span class="footer-sep">-</span>
+  <span class="footer-item">PUBLISHED OUTPUT ONLY</span>
+  <span class="footer-sep">-</span>
+  <span class="footer-item">sonar.cjipro.com/briefing</span>
+  <span class="footer-sep">-</span>
+  <span class="footer-item">Sonar v0.6</span>
+  <span class="footer-sep">-</span>
+  <span class="footer-sovereign">SOVEREIGN</span>
+  <span class="footer-sep">-</span>
+  <span class="footer-item">Article Zero</span>
+  <span class="footer-sep">-</span>
+  <span class="footer-item">Published 2026-03-28 21:52 UTC</span>
+</div>
+
+<!-- -- Ask Sonar Button ----------------------------------------------------- -->
+<button class="ask-sonar-btn" onclick="openChat()" aria-label="Ask Sonar">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  Ask Sonar
+</button>
+
+<!-- -- Chat Panel ----------------------------------------------------------- -->
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-header">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e8a030" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+    <span class="chat-title">Ask Sonar</span>
+    <button class="chat-close" onclick="closeChat()">&#215;</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg system">Sonar is ready. Ask about any competitor journey, signal pattern, or CHRONICLE match.</div>
+  </div>
+  <div class="chat-chips">
+    <span class="chip" onclick="sendChip(this)">What is Barclays login score?</span>
+    <span class="chip" onclick="sendChip(this)">Any active P0 signals?</span>
+    <span class="chip" onclick="sendChip(this)">CHRONICLE match for Lloyds?</span>
+    <span class="chip" onclick="sendChip(this)">Which journey is regressing?</span>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Ask about market signals…" onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" onclick="sendChat()">Send</button>
+  </div>
+</div>
+
+<script>
+// -- Chat Panel ------------------------------------------------------------
+const PROXY_URL = 'https://sonar.cjipro.com/api/ask';
+
+function openChat() {
+  document.getElementById('chatPanel').classList.add('open');
+}
+function closeChat() {
+  document.getElementById('chatPanel').classList.remove('open');
+}
+function sendChip(el) {
+  document.getElementById('chatInput').value = el.textContent;
+  sendChat();
+}
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const messages = document.getElementById('chatMessages');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+
+  // User message
+  const userMsg = document.createElement('div');
+  userMsg.className = 'chat-msg user';
+  userMsg.textContent = text;
+  messages.appendChild(userMsg);
+  messages.scrollTop = messages.scrollHeight;
+
+  // Send to proxy
+  try {
+    const res = await fetch(PROXY_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({query: text, version: '8.20.1'})
+    });
+    const data = await res.json();
+    const reply = document.createElement('div');
+    reply.className = 'chat-msg system';
+    reply.textContent = data.response || 'No response from Sonar.';
+    messages.appendChild(reply);
+  } catch (err) {
+    const errMsg = document.createElement('div');
+    errMsg.className = 'chat-msg error';
+    errMsg.textContent = 'Proxy unavailable — sonar.cjipro.com/api/ask not reachable.';
+    messages.appendChild(errMsg);
+  }
+  messages.scrollTop = messages.scrollHeight;
+}
+
+// Close on outside click
+document.addEventListener('click', function(e) {
+  const panel = document.getElementById('chatPanel');
+  const btn = document.querySelector('.ask-sonar-btn');
+  if (panel.classList.contains('open') && !panel.contains(e.target) && !btn.contains(e.target)) {
+    closeChat();
+  }
+});
+</script>
+
+</body>
+</html>
