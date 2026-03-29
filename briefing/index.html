@@ -76,20 +76,19 @@ a { color: var(--blue); text-decoration: none; }
 .brand-dot-blue { background: #00AEEF; box-shadow: 0 0 4px rgba(0,174,239,0.5); }
 .brand-dot-teal { background: #00AFA0; box-shadow: 0 0 4px rgba(0,175,160,0.5); }
 
-/* Barclays sentiment card */
-.topbar-sent-card { background: #002A3F; border: 1px solid #00AEEF; border-radius: 10px; overflow: hidden; margin-top: 6px; margin-bottom: 4px; }
+/* Barclays sentiment card — compact 2-line */
+.topbar-sent-card { background: #002A3F; border: 1px solid #00AEEF; border-radius: 8px; overflow: hidden; margin-top: 6px; margin-bottom: 4px; max-height: 80px; }
 .sent-card-bar { height: 2px; background: linear-gradient(90deg, #00AEEF, #0080C0); }
-.sent-card-inner { padding: 9px 13px; display: flex; flex-direction: column; gap: 5px; }
-.sent-card-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: #00AEEF; text-transform: uppercase; }
-.sent-card-score-row { display: flex; align-items: baseline; gap: 12px; }
-.sent-card-score { font-family: var(--mono); font-size: 44px; font-weight: 800; color: #E8F4FA; line-height: 1; }
-.sent-card-delta { font-family: var(--mono); font-size: 16px; font-weight: 800; color: #CC0000; }
+.sent-card-inner { padding: 8px 14px; display: flex; flex-direction: column; gap: 3px; }
+.sent-row-1 { display: flex; align-items: baseline; gap: 8px; }
+.sent-row-2 { display: flex; align-items: center; justify-content: space-between; }
+.sent-card-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: #00AEEF; text-transform: uppercase; flex-shrink: 0; }
+.sent-card-score { font-family: var(--mono); font-size: 32px; font-weight: 800; color: #E8F4FA; line-height: 1; }
+.sent-card-delta { font-family: var(--mono); font-size: 13px; font-weight: 600; }
+.sent-card-traj { font-size: 10px; font-weight: 700; margin-left: auto; }
 .sent-card-baseline { font-family: var(--mono); font-size: 10px; color: #4A7A8F; }
-.sent-card-progress { height: 3px; background: #003A5C; border-radius: 2px; overflow: hidden; }
-.sent-progress-fill { height: 3px; background: linear-gradient(90deg, #00AEEF, #0080C0); border-radius: 2px; }
-.sent-card-meta { display: flex; justify-content: space-between; align-items: center; }
-.sent-card-traj { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; }
-.traj-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.sent-card-progress { height: 2px; background: #003A5C; border-radius: 1px; overflow: hidden; margin-top: 3px; }
+.sent-progress-fill { height: 2px; background: linear-gradient(90deg, #00AEEF, #0080C0); border-radius: 1px; }
 .sent-card-ts { font-family: var(--mono); font-size: 10px; color: #3A6A7F; }
 
 /* Pills row */
@@ -321,21 +320,18 @@ a { color: var(--blue); text-decoration: none; }
     <div class="topbar-sent-card">
       <div class="sent-card-bar"></div>
       <div class="sent-card-inner">
-        <div class="sent-card-label">BARCLAYS OVERALL SENTIMENT &middot; TODAY vs BASELINE</div>
-        <div class="sent-card-score-row">
+        <div class="sent-row-1">
+          <span class="sent-card-label">BARCLAYS SENTIMENT</span>
           <span class="sent-card-score">89</span>
           <span class="sent-card-delta" style="color:#ff4444;">— vs baseline</span>
+          <span class="sent-card-traj" style="color:#ff4444;">&#8600; WORSENING</span>
         </div>
-        <div class="sent-card-baseline">Baseline: Establishing</div>
+        <div class="sent-row-2">
+          <span class="sent-card-baseline">Baseline: Establishing</span>
+          <span class="sent-card-ts">2026-03-28 14:02 UTC</span>
+        </div>
         <div class="sent-card-progress">
           <div class="sent-progress-fill" style="width:89%;"></div>
-        </div>
-        <div class="sent-card-meta">
-          <span class="sent-card-traj" style="color:#ff4444;">
-            <span class="traj-dot" style="background:#ff4444;"></span>
-            &#8600; WORSENING
-          </span>
-          <span class="sent-card-ts">2026-03-28 14:02 UTC</span>
         </div>
       </div>
     </div>
@@ -354,16 +350,16 @@ a { color: var(--blue); text-decoration: none; }
       <span class="exec-alert-ts">2026-03-28 14:02 UTC</span>
     </div>
     <div class="exec-alert-body">
-      <div class="exec-alert-finding">NatWest</div>
+      <div class="exec-alert-finding">Barclays Servicing journey — elevated risk signals</div>
       <div class="exec-alert-pills">
         <span class="exec-pill" style="background:rgba(204,0,0,0.18);color:#FF4444;border:1px solid rgba(204,0,0,0.4);">P0 &nbsp;NONE</span>
         <span class="exec-pill" style="background:rgba(245,166,35,0.12);color:#F5A623;border:1px solid rgba(245,166,35,0.3);">P1 &nbsp;60</span>
         <span class="exec-pill" style="background:rgba(245,166,35,0.08);color:#c0922a;border:1px solid rgba(245,166,35,0.2);">Watch &nbsp;0</span>
       </div>
       <div class="exec-alert-section-label">RISK INTERPRETATION</div>
-      <div class="exec-alert-section-text">60 P1 signals detected across monitored competitors. Elevated risk window.</div>
+      <div class="exec-alert-section-text">Barclays-specific signals confirm active risk window on the Servicing journey. P1 signal count: 6. CHRONICLE similarity check recommended.</div>
       <div class="exec-alert-section-label">RECOMMENDED ACTION</div>
-      <div class="exec-alert-section-text">Initiate CHRONICLE similarity check. Review top concern competitor journey data. Brief stakeholders within 30 minutes.</div>
+      <div class="exec-alert-section-text">Review Barclays Servicing journey signal feed. Initiate CHRONICLE similarity check if pattern persists beyond next harvest cycle.</div>
     </div>
     <div class="exec-alert-footer">
       <button class="exec-escalate-btn">Escalate</button>
@@ -561,7 +557,7 @@ a { color: var(--blue); text-decoration: none; }
   <span class="footer-sep">-</span>
   <span class="footer-item">Article Zero</span>
   <span class="footer-sep">-</span>
-  <span class="footer-item">Published 2026-03-29 06:44 UTC</span>
+  <span class="footer-item">Published 2026-03-29 10:14 UTC</span>
 </div>
 
 <!-- -- Ask Sonar Button ----------------------------------------------------- -->
