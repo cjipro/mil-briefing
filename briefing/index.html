@@ -46,9 +46,9 @@ a { color: var(--blue); text-decoration: none; }
 /* -- Topbar ----------------------------------------------------------------- */
 .topbar {
   display: grid;
-  grid-template-columns: 1fr 220px 380px;
-  gap: 20px;
-  padding: 14px 32px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 16px 24px;
   background: var(--topbar-bg);
   border-bottom: 1px solid var(--border);
   position: sticky;
@@ -56,12 +56,26 @@ a { color: var(--blue); text-decoration: none; }
   z-index: 100;
   align-items: stretch;
 }
-.topbar-left { display: flex; flex-direction: column; gap: 5px; justify-content: space-between; }
-.topbar-metrics { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
-.topbar-metric-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.topbar-metric-value { font-family: var(--mono); font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 3px; }
-.topbar-metric-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-3); text-transform: uppercase; }
-.topbar-metric-sub { font-size: 11px; color: var(--text-2); margin-top: 2px; }
+/* Topbar shared box style */
+.topbar-box { background: #002A3F; border: 1px solid #003A5C; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+.topbar-box-header { padding: 10px 16px; border-bottom: 1px solid #003A5C; display: flex; align-items: center; justify-content: space-between; }
+.topbar-box-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.topbar-box-body { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+/* Box 1 brand */
+.topbar-left { display: flex; flex-direction: column; }
+/* Box 2 issues status */
+.issues-stat-row { display: flex; align-items: center; gap: 12px; }
+.issues-stat-num { font-family: var(--mono); font-size: 32px; font-weight: 800; line-height: 1; min-width: 44px; }
+.issues-stat-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-3); text-transform: uppercase; }
+.issues-stat-sub { font-size: 11px; color: var(--text-2); margin-top: 2px; }
+.issues-divider { height: 1px; background: #003A5C; margin: 4px 0; }
+/* Journey list in box 2 */
+.journey-list-item { display: flex; align-items: center; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #001E30; font-size: 12px; }
+.journey-list-item:last-child { border-bottom: none; }
+.journey-list-name { color: #7AACBF; font-weight: 600; }
+.journey-list-right { display: flex; align-items: center; gap: 6px; }
+.journey-list-score { font-family: var(--mono); font-size: 13px; font-weight: 700; }
+.journey-list-status { font-size: 10px; font-weight: 700; }
 .topbar-logo {
   font-weight: 800;
   font-size: 17px;
@@ -109,7 +123,7 @@ a { color: var(--blue); text-decoration: none; }
 .bootstrap-badge { font-size: 11px; padding: 2px 8px; border-radius: 12px; background: rgba(245,166,35,0.10); color: var(--amber); border: 1px solid rgba(245,166,35,0.3); font-family: var(--mono); letter-spacing: 0.05em; }
 
 /* Executive Alert panel */
-.exec-alert-panel { background: #001828; border: 1px solid #CC0000; border-radius: 12px; overflow: hidden; align-self: flex-start; }
+.exec-alert-panel { background: #001828; border: 1px solid #CC0000; border-radius: 12px; overflow: hidden; }
 .exec-alert-header { background: #1A0000; border-bottom: 1px solid #CC0000; padding: 8px 14px; display: flex; align-items: center; gap: 8px; }
 .exec-alert-pulse { width: 7px; height: 7px; border-radius: 50%; background: #CC0000; animation: pulse-red 1.5s ease-in-out infinite; flex-shrink: 0; }
 @keyframes pulse-red {
@@ -298,11 +312,10 @@ a { color: var(--blue); text-decoration: none; }
 .chat-msg.error { background: rgba(204,0,0,0.1); color: #FF6666; }
 
 /* -- Responsive ------------------------------------------------------------- */
-@media (max-width: 900px) {
-  .topbar { grid-template-columns: 1fr; }
+@media (max-width: 768px) {
+  .topbar { grid-template-columns: 1fr; gap: 12px; padding: 12px 16px; position: relative; }
+  .topbar-box { min-height: 280px; }
   .body-wrapper { grid-template-columns: 1fr; }
-  .metrics-strip { flex-wrap: wrap; }
-  .metric-card { min-width: 45%; }
   .journey-row { flex-wrap: wrap; }
   .journey-cell { min-width: 45%; }
 }
@@ -312,62 +325,106 @@ a { color: var(--blue); text-decoration: none; }
 
 <!-- -- Topbar -------------------------------------------------------------- -->
 <div class="topbar">
-  <!-- Left: brand + straplines + sentiment card + pills -->
-  <div class="topbar-left">
-    <div class="topbar-logo">CJI SONAR &mdash; APP INTELLIGENCE</div>
-    <div class="brand-line">
-      <span class="brand-dot brand-dot-blue"></span>
-      <span>Live customer signals across market channels &mdash; continuously monitored and interpreted</span>
-    </div>
-    <div class="brand-line">
-      <span class="brand-dot brand-dot-teal"></span>
-      <span>Historical failure patterns applied to detect early risk &mdash; enabling Barclays to act before issues escalate</span>
-    </div>
-    <div class="topbar-sent-card">
-      <div class="sent-card-bar"></div>
-      <div class="sent-card-inner">
-        <div class="sent-row-1">
-          <span class="sent-card-label">BARCLAYS SENTIMENT</span>
-          <span class="sent-card-score">89</span>
-          <span class="sent-card-delta" style="color:#ff4444;">— vs baseline</span>
-          <span class="sent-card-traj" style="color:#ff4444;">&#8600; WORSENING</span>
-        </div>
-        <div class="sent-row-2">
-          <span class="sent-card-baseline">Baseline: Establishing</span>
-          <span class="sent-card-ts">2026-03-28 14:02 UTC</span>
-        </div>
-        <div class="sent-card-progress">
-          <div class="sent-progress-fill" style="width:89%;"></div>
+
+  <!-- Box 1: Brand + Sentiment Baseline -->
+  <div class="topbar-box topbar-left">
+    <div class="sent-card-bar" style="height:2px;background:linear-gradient(90deg,#00AEEF,#0080C0);"></div>
+    <div class="topbar-box-body" style="gap:8px;">
+      <div class="topbar-logo">CJI SONAR &mdash; APP INTELLIGENCE</div>
+      <div class="brand-line">
+        <span class="brand-dot brand-dot-blue"></span>
+        <span>Live customer signals across market channels &mdash; continuously monitored and interpreted</span>
+      </div>
+      <div class="brand-line">
+        <span class="brand-dot brand-dot-teal"></span>
+        <span>Historical failure patterns applied to detect early risk &mdash; enabling Barclays to act before issues escalate</span>
+      </div>
+      <div class="topbar-sent-card" style="margin-top:4px;">
+        <div class="sent-card-bar"></div>
+        <div class="sent-card-inner">
+          <div class="sent-row-1">
+            <span class="sent-card-label">BARCLAYS SENTIMENT</span>
+            <span class="sent-card-score">89</span>
+            <span class="sent-card-delta" style="color:#ff4444;">— vs baseline</span>
+            <span class="sent-card-traj" style="color:#ff4444;">&#8600; WORSENING</span>
+          </div>
+          <div class="sent-row-2">
+            <span class="sent-card-baseline">Baseline: Establishing</span>
+            <span class="sent-card-ts">2026-03-28 14:02 UTC</span>
+          </div>
+          <div class="sent-card-progress">
+            <div class="sent-progress-fill" style="width:89%;"></div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="topbar-pills">
-      <span class="version-pill">v8.20.1</span>
-      <span class="version-pill">2026-03-28 14:02 UTC</span>
-      <span class='bootstrap-badge'>BASELINE ESTABLISHING</span>
-      <div class="live-dot">LIVE</div>
+      <div class="topbar-pills" style="margin-top:auto;">
+        <span class="version-pill">v8.20.1</span>
+        <span class="version-pill">2026-03-28 14:02 UTC</span>
+        <span class='bootstrap-badge'>BASELINE ESTABLISHING</span>
+        <div class="live-dot">LIVE</div>
+      </div>
     </div>
   </div>
-  <!-- Middle: Metrics column -->
-  <div class="topbar-metrics">
-    <div class="topbar-metric-item">
-      <div class="topbar-metric-value" style="color:var(--red);">4</div>
-      <div class="topbar-metric-label">Needs Attention</div>
-      <div class="topbar-metric-sub">REGRESSION journeys</div>
+
+  <!-- Middle: Issues Status box -->
+  <div class="topbar-box">
+    <div class="topbar-box-header" style="background:#001E30;">
+      <span class="topbar-box-title" style="color:#7AACBF;">ISSUES STATUS</span>
+      <span style="font-size:10px;color:#3A6A7F;">today's signal summary</span>
     </div>
-    <div class="topbar-metric-item">
-      <div class="topbar-metric-value" style="color:var(--amber);">0</div>
-      <div class="topbar-metric-label">Watch</div>
-      <div class="topbar-metric-sub">WATCH journeys</div>
-    </div>
-    <div class="topbar-metric-item">
-      <div class="topbar-metric-value" style="color:var(--teal);">1</div>
-      <div class="topbar-metric-label">Performing Well</div>
-      <div class="topbar-metric-sub">across all sources</div>
+    <div class="topbar-box-body">
+      <div class="issues-stat-row">
+        <span class="issues-stat-num" style="color:var(--red);">4</span>
+        <div><div class="issues-stat-label">Needs Attention</div><div class="issues-stat-sub">REGRESSION journeys</div></div>
+      </div>
+      <div class="issues-stat-row">
+        <span class="issues-stat-num" style="color:var(--amber);">0</span>
+        <div><div class="issues-stat-label">Watch</div><div class="issues-stat-sub">WATCH journeys</div></div>
+      </div>
+      <div class="issues-stat-row">
+        <span class="issues-stat-num" style="color:var(--teal);">1</span>
+        <div><div class="issues-stat-label">Performing Well</div><div class="issues-stat-sub">across all sources</div></div>
+      </div>
+      <div class="issues-divider"></div>
+        <div class="journey-list-item">
+          <span class="journey-list-name">Servicing</span>
+          <span class="journey-list-right">
+            <span class="journey-list-score" style="color:#CC0000;">82</span>
+            <span class="journey-list-status" style="color:#CC0000;">&#8600; REGRESSION</span>
+          </span>
+        </div>
+        <div class="journey-list-item">
+          <span class="journey-list-name">Login &amp; Auth</span>
+          <span class="journey-list-right">
+            <span class="journey-list-score" style="color:#CC0000;">15</span>
+            <span class="journey-list-status" style="color:#CC0000;">&#8600; REGRESSION</span>
+          </span>
+        </div>
+        <div class="journey-list-item">
+          <span class="journey-list-name">Payments</span>
+          <span class="journey-list-right">
+            <span class="journey-list-score" style="color:#CC0000;">74</span>
+            <span class="journey-list-status" style="color:#CC0000;">&#8600; REGRESSION</span>
+          </span>
+        </div>
+        <div class="journey-list-item">
+          <span class="journey-list-name">Loans — Step 3</span>
+          <span class="journey-list-right">
+            <span class="journey-list-score" style="color:#CC0000;">8</span>
+            <span class="journey-list-status" style="color:#CC0000;">&#8600; REGRESSION</span>
+          </span>
+        </div>
+        <div class="journey-list-item">
+          <span class="journey-list-name">Onboarding</span>
+          <span class="journey-list-right">
+            <span class="journey-list-score" style="color:#00AFA0;">—</span>
+            <span class="journey-list-status" style="color:#00AFA0;">&#8599; PERFORMING WELL</span>
+          </span>
+        </div>
     </div>
   </div>
   <!-- Right: Executive Alert panel -->
-  <div class="exec-alert-panel">
+  <div class="topbar-box exec-alert-panel">
     <div class="exec-alert-header">
       <span class="exec-alert-pulse"></span>
       <span class="exec-alert-title">Executive Alert</span>
@@ -578,7 +635,7 @@ a { color: var(--blue); text-decoration: none; }
   <span class="footer-sep">-</span>
   <span class="footer-item">Article Zero</span>
   <span class="footer-sep">-</span>
-  <span class="footer-item">Published 2026-03-29 10:54 UTC</span>
+  <span class="footer-item">Published 2026-03-29 11:19 UTC</span>
 </div>
 
 <!-- -- Ask Sonar Button ----------------------------------------------------- -->
