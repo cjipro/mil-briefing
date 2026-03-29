@@ -54,11 +54,11 @@ a { color: var(--blue); text-decoration: none; }
   position: sticky;
   top: 0;
   z-index: 100;
-  align-items: start;
+  align-items: stretch;
 }
-.topbar-left { display: flex; flex-direction: column; gap: 5px; }
-.topbar-metrics { display: flex; flex-direction: column; gap: 8px; padding-top: 4px; }
-.topbar-metric-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; }
+.topbar-left { display: flex; flex-direction: column; gap: 5px; justify-content: space-between; }
+.topbar-metrics { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
+.topbar-metric-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
 .topbar-metric-value { font-family: var(--mono); font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 3px; }
 .topbar-metric-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-3); text-transform: uppercase; }
 .topbar-metric-sub { font-size: 11px; color: var(--text-2); margin-top: 2px; }
@@ -83,7 +83,7 @@ a { color: var(--blue); text-decoration: none; }
 .brand-dot-teal { background: #00AFA0; box-shadow: 0 0 4px rgba(0,175,160,0.5); }
 
 /* Barclays sentiment card — compact 2-line */
-.topbar-sent-card { background: #002A3F; border: 1px solid #00AEEF; border-radius: 8px; overflow: hidden; margin-top: 6px; margin-bottom: 0; max-height: 90px; max-width: 480px; }
+.topbar-sent-card { background: #002A3F; border: 1px solid #00AEEF; border-radius: 8px; overflow: hidden; margin-top: 6px; margin-bottom: 0; max-height: 90px; max-width: 100%; width: 100%; }
 .sent-card-bar { height: 2px; background: linear-gradient(90deg, #00AEEF, #0080C0); }
 .sent-card-inner { padding: 8px 14px; display: flex; flex-direction: column; gap: 3px; }
 .sent-row-1 { display: flex; align-items: baseline; gap: 8px; }
@@ -578,7 +578,7 @@ a { color: var(--blue); text-decoration: none; }
   <span class="footer-sep">-</span>
   <span class="footer-item">Article Zero</span>
   <span class="footer-sep">-</span>
-  <span class="footer-item">Published 2026-03-29 10:48 UTC</span>
+  <span class="footer-item">Published 2026-03-29 10:54 UTC</span>
 </div>
 
 <!-- -- Ask Sonar Button ----------------------------------------------------- -->
