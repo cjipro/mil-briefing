@@ -122,6 +122,23 @@ a { color: var(--blue); text-decoration: none; }
 .status-clear { background: rgba(0,175,160,0.12); color: #00AFA0; }
 .status-watch { background: rgba(245,166,35,0.12); color: #F5A623; }
 .status-alert { background: rgba(204,0,0,0.15); color: #FF4444; }
+/* Nominal state overrides */
+.exec-alert-nominal { border-color: #00AFA0; }
+.exec-alert-header-nominal { background: #001A18; border-bottom-color: #00AFA0; }
+.exec-alert-pulse-green { background: #00AFA0; animation: none; }
+.exec-alert-title-nominal { color: #00AFA0; }
+/* Finding + pills */
+.exec-alert-finding { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.exec-alert-pills { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
+.exec-pill { font-family: var(--mono); font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; letter-spacing: 0.04em; }
+.exec-alert-section-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-3); text-transform: uppercase; margin-top: 6px; margin-bottom: 3px; }
+.exec-alert-section-text { font-size: 11px; color: var(--text-2); line-height: 1.5; }
+.exec-alert-footer { padding: 8px 14px; border-top: 1px solid #2A1010; }
+.exec-escalate-btn { background: rgba(204,0,0,0.15); color: #FF4444; border: 1px solid rgba(204,0,0,0.4); border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 5px 14px; cursor: pointer; width: 100%; font-family: var(--sans); text-transform: uppercase; }
+.exec-escalate-btn:hover { background: rgba(204,0,0,0.25); }
+/* Nominal body text */
+.exec-nominal-badge { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: #00AFA0; margin-bottom: 8px; }
+.exec-nominal-text { font-size: 11px; color: var(--text-2); line-height: 1.5; }
 
 /* -- Ticker ----------------------------------------------------------------- */
 .ticker-wrapper { overflow: hidden; background: var(--ticker-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 11px 0; }
@@ -292,7 +309,7 @@ a { color: var(--blue); text-decoration: none; }
 <div class="topbar">
   <!-- Left: brand + straplines + sentiment card + pills -->
   <div class="topbar-left">
-    <div class="topbar-logo">SONAR / APP INTELLIGENCE</div>
+    <div class="topbar-logo">CJI SONAR &mdash; APP INTELLIGENCE</div>
     <div class="brand-line">
       <span class="brand-dot brand-dot-blue"></span>
       <span>Live customer signals across market channels &mdash; continuously monitored and interpreted</span>
@@ -333,30 +350,23 @@ a { color: var(--blue); text-decoration: none; }
   <div class="exec-alert-panel">
     <div class="exec-alert-header">
       <span class="exec-alert-pulse"></span>
-      <span class="exec-alert-title">Executive Alerts</span>
+      <span class="exec-alert-title">Executive Alert</span>
       <span class="exec-alert-ts">2026-03-28 14:02 UTC</span>
     </div>
     <div class="exec-alert-body">
-      <div class="exec-alert-row">
-        <span class="exec-alert-key">P0 Active</span>
-        <span class="exec-alert-status status-clear">NONE</span>
+      <div class="exec-alert-finding">NatWest</div>
+      <div class="exec-alert-pills">
+        <span class="exec-pill" style="background:rgba(204,0,0,0.18);color:#FF4444;border:1px solid rgba(204,0,0,0.4);">P0 &nbsp;NONE</span>
+        <span class="exec-pill" style="background:rgba(245,166,35,0.12);color:#F5A623;border:1px solid rgba(245,166,35,0.3);">P1 &nbsp;60</span>
+        <span class="exec-pill" style="background:rgba(245,166,35,0.08);color:#c0922a;border:1px solid rgba(245,166,35,0.2);">Watch &nbsp;0</span>
       </div>
-      <div class="exec-alert-row">
-        <span class="exec-alert-key">P1 Signals</span>
-        <span class="exec-alert-val" style="color:#ff6666;">60</span>
-      </div>
-      <div class="exec-alert-row">
-        <span class="exec-alert-key">Watch List</span>
-        <span class="exec-alert-val" style="color:var(--amber);">0</span>
-      </div>
-      <div class="exec-alert-row">
-        <span class="exec-alert-key">Top Concern</span>
-        <span class="exec-alert-val" style="color:#FF4444;font-size:11px;">NatWest</span>
-      </div>
-      <div class="exec-alert-row">
-        <span class="exec-alert-key">System</span>
-        <span class="exec-alert-status status-clear">NOMINAL</span>
-      </div>
+      <div class="exec-alert-section-label">RISK INTERPRETATION</div>
+      <div class="exec-alert-section-text">60 P1 signals detected across monitored competitors. Elevated risk window.</div>
+      <div class="exec-alert-section-label">RECOMMENDED ACTION</div>
+      <div class="exec-alert-section-text">Initiate CHRONICLE similarity check. Review top concern competitor journey data. Brief stakeholders within 30 minutes.</div>
+    </div>
+    <div class="exec-alert-footer">
+      <button class="exec-escalate-btn">Escalate</button>
     </div>
   </div>
 </div>
@@ -370,9 +380,7 @@ a { color: var(--blue); text-decoration: none; }
 <div class="journey-row"><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Login &amp; Auth</div><div class="journey-cell-score" style="color:var(--red);">15</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--red);">↘</span><span class="journey-status-label" style="color:var(--red);">REGRESSION</span></div></div><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Payments</div><div class="journey-cell-score" style="color:var(--red);">74</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--red);">↘</span><span class="journey-status-label" style="color:var(--red);">REGRESSION</span></div></div><div class="journey-cell" style="border-top:3px solid var(--green);"><div class="journey-cell-name">Onboarding</div><div class="journey-cell-score" style="color:var(--green);">—</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--green);">↗</span><span class="journey-status-label" style="color:var(--green);">PERFORMING WELL</span></div></div><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Loans — Step 3</div><div class="journey-cell-score" style="color:var(--red);">8</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--red);">↘</span><span class="journey-status-label" style="color:var(--red);">REGRESSION</span></div></div><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Servicing</div><div class="journey-cell-score" style="color:var(--red);">82</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--red);">↘</span><span class="journey-status-label" style="color:var(--red);">REGRESSION</span></div></div></div>
 
 <!-- -- Metrics Strip ------------------------------------------------------- -->
-<div class="metrics-strip"><div class="metric-card"><div class="metric-value" style="color:var(--red);">4</div><div class="metric-label">Needs Attention</div><div class="metric-sub">REGRESSION journeys</div></div><div class="metric-card"><div class="metric-value" style="color:var(--amber);">0</div><div class="metric-label">Watch</div><div class="metric-sub">WATCH journeys</div></div><div class="metric-card"><div class="metric-value" style="color:var(--green);">1</div><div class="metric-label">Performing Well</div><div class="metric-sub">across all sources</div></div><div class="metric-card"><div class="metric-value" style="color:var(--amber);">88.8</div><div class="metric-label">Barclays Sentiment</div><div class="metric-sub">brand competitor</div></div></div>
-
-<div class="defaults-banner"><strong>Safe defaults applied:</strong><ul><li>mil_findings.json empty — sentiment derived from raw signals</li></ul></div>
+<div class="metrics-strip"><div class="metric-card"><div class="metric-value" style="color:var(--red);">4</div><div class="metric-label">Needs Attention</div><div class="metric-sub">REGRESSION journeys</div></div><div class="metric-card"><div class="metric-value" style="color:var(--amber);">0</div><div class="metric-label">Watch</div><div class="metric-sub">WATCH journeys</div></div><div class="metric-card"><div class="metric-value" style="color:var(--green);">1</div><div class="metric-label">Performing Well</div><div class="metric-sub">across all sources</div></div></div>
 
 <!-- -- Body ---------------------------------------------------------------- -->
 <div class="body-wrapper">
@@ -553,7 +561,7 @@ a { color: var(--blue); text-decoration: none; }
   <span class="footer-sep">-</span>
   <span class="footer-item">Article Zero</span>
   <span class="footer-sep">-</span>
-  <span class="footer-item">Published 2026-03-29 06:29 UTC</span>
+  <span class="footer-item">Published 2026-03-29 06:44 UTC</span>
 </div>
 
 <!-- -- Ask Sonar Button ----------------------------------------------------- -->
