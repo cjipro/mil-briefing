@@ -342,7 +342,7 @@ a { color: var(--blue); text-decoration: none; }
           </div>
           <div class="sent-row-2">
             <span class="sent-card-baseline">Baseline: Establishing</span>
-            <span class="sent-card-ts">2026-03-31 17:55 UTC</span>
+            <span class="sent-card-ts">2026-03-31 17:57 UTC</span>
           </div>
           <div class="sent-card-progress">
             <div class="sent-progress-fill" style="width:89%;"></div>
@@ -360,8 +360,8 @@ a { color: var(--blue); text-decoration: none; }
       </div>
       <div class="topbar-pills" style="margin-top:auto;">
         <span class="version-pill">v8.20.1</span>
-        <span class="version-pill">2026-03-31 17:55 UTC</span>
-        <span class='bootstrap-badge'>BASELINE ESTABLISHING</span>
+        <span class="version-pill">2026-03-31 17:57 UTC</span>
+        
         <div class="live-dot">LIVE</div>
       </div>
     </div>
@@ -424,16 +424,30 @@ a { color: var(--blue); text-decoration: none; }
         </div>
     </div>
   </div>
-  <!-- Right: Executive Alert panel -->
-  <div class="topbar-box exec-alert-panel exec-alert-nominal">
-    <div class="exec-alert-header exec-alert-header-nominal">
-      <span class="exec-alert-pulse exec-alert-pulse-green"></span>
-      <span class="exec-alert-title exec-alert-title-nominal">Executive Alert</span>
-      <span class="exec-alert-ts">2026-03-31 17:55 UTC</span>
+  <!-- Right: Executive Alert panel (bd-wired) -->
+  <div class="topbar-box exec-alert-panel">
+    <div class="exec-alert-header">
+      <span class="exec-alert-pulse"></span>
+      <span class="exec-alert-title">Executive Alert</span>
+      <span class="exec-alert-ts">2026-03-31 17:57 UTC</span>
     </div>
     <div class="exec-alert-body">
-      <div class="exec-nominal-badge">SYSTEMS NOMINAL</div>
-      <div class="exec-nominal-text">No active P0 or P1 signals in current window.</div>
+      <div class="exec-alert-finding">Barclays — App crashing and service disruption — users reporting: customer, blocking, crashes</div>
+      <div class="exec-alert-pills">
+        <span class="exec-pill" style="background:rgba(204,0,0,0.18);color:#FF4444;border:1px solid rgba(204,0,0,0.4);">P0 &nbsp;4</span>
+        <span class="exec-pill" style="background:rgba(245,166,35,0.12);color:#F5A623;border:1px solid rgba(245,166,35,0.3);">P1 &nbsp;4</span>
+        <span class="exec-pill" style="background:rgba(0,174,239,0.10);color:#00AEEF;border:1px solid rgba(0,174,239,0.3);">CAC &nbsp;0.451</span>
+        <span class="exec-pill" style="background:rgba(0,175,160,0.10);color:#00AFA0;border:1px solid rgba(0,175,160,0.3);">Clark &nbsp;P2</span>
+      </div>
+      <div class="exec-alert-section-label">RISK INTERPRETATION</div>
+      <div class="exec-alert-section-text">Barclays customers are reporting app crashing and service disruption. 4 critical and 4 high-severity signals detected in this window. Key terms: customer, blocking, crashes.</div>
+      <div class="exec-alert-section-label">BLIND SPOT</div>
+      <div class="exec-alert-section-text">exact product names</div>
+      <div class="exec-alert-section-label">RECOMMENDED ACTION</div>
+      <div class="exec-alert-section-text">Speak to the Channels Decision Intelligence team — internal journey data needed to confirm severity and next steps.</div>
+    </div>
+    <div class="exec-alert-footer">
+      <button class="exec-escalate-btn">Escalate</button>
     </div>
   </div>
 </div>
@@ -652,7 +666,7 @@ a { color: var(--blue); text-decoration: none; }
   <span class="footer-sep">-</span>
   <span class="footer-item">Article Zero</span>
   <span class="footer-sep">-</span>
-  <span class="footer-item">Published 2026-03-31 17:55 UTC</span>
+  <span class="footer-item">Published 2026-03-31 17:57 UTC</span>
 </div>
 
 <!-- -- Ask Sonar Button ----------------------------------------------------- -->
