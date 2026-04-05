@@ -767,31 +767,26 @@ document.addEventListener('click', function(e) {
 
 
 <style>
-/* ── V2 additions ───────────────────────────────── */
-.v2-wrapper {
-  max-width: 900px; margin: 0 auto; padding: 0 20px 40px;
+/* ── V2 additions — matches topbar layout pattern ── */
+.v2-outer {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .v2-divider {
   border: none; border-top: 1px solid #003A5C;
-  margin: 32px 0 24px;
+  margin: 0;
 }
-.v2-header {
+.v2-label {
   font-family: 'DM Mono', monospace;
-  font-size: 11px; color: #3A6A7F;
+  font-size: 10px; color: #3A6A7F;
   text-transform: uppercase; letter-spacing: 1.5px;
-  margin-bottom: 24px; padding-bottom: 8px;
-  border-bottom: 1px solid #003A5C;
+  padding: 8px 0 4px;
 }
-.v2-header span { color: #00AEEF; }
-.v2-section { margin-bottom: 32px; }
-.v2-section-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px; color: #7AACBF;
-  text-transform: uppercase; letter-spacing: 1.2px;
-  margin-bottom: 4px;
-}
-.v2-section-sub {
-  font-size: 10px; color: #3A6A7F; margin-bottom: 14px;
+.v2-label span { color: #00AEEF; }
+@media (max-width: 768px) {
+  .v2-outer { padding: 12px 16px; gap: 12px; }
 }
 /* Inference cards */
 .inf-card {
@@ -856,28 +851,35 @@ document.addEventListener('click', function(e) {
           letter-spacing: 1px; margin-top: 2px; }
 </style>
 <hr class="v2-divider">
-<div class="v2-wrapper">
-  <div class="v2-header">
-    Sonar Intelligence Layer — V2 &nbsp;·&nbsp;
-    <span>Phase 1 Components</span> &nbsp;·&nbsp;
-    Generated 2026-04-05 12:01 UTC
+<div class="v2-outer">
+  <div class="v2-label">
+    Sonar Intelligence Layer &nbsp;&middot;&nbsp;
+    <span>Phase 1</span> &nbsp;&middot;&nbsp;
+    2026-04-05 12:23 UTC
   </div>
   
-<div class="v2-section">
-  <div class="v2-section-title">VANE — 14-DAY SENTIMENT TRAJECTORY</div>
-  <div class="v2-section-sub">Daily average star rating × 20 · App Store + Google Play · min 3 reviews/day</div>
-  <div>                            <div id="6ec0b84b-a7b7-42e4-88f3-20c808ee6525" class="plotly-graph-div" style="height:280px; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("6ec0b84b-a7b7-42e4-88f3-20c808ee6525")) {                    Plotly.newPlot(                        "6ec0b84b-a7b7-42e4-88f3-20c808ee6525",                        [{"connectgaps":false,"line":{"color":"#F5A623","dash":"dot","width":1.5},"marker":{"size":4},"mode":"lines+markers","name":"NatWest","opacity":0.75,"x":["Mar 23","Mar 24","Mar 25","Mar 26","Mar 27","Mar 28","Mar 29","Mar 30","Mar 31","Apr 01","Apr 02","Apr 03","Apr 04","Apr 05"],"y":[57.1,63.6,69.5,77.6,86.7,90.5,87.6,77.5,62.5,84.2,74.3,75.8,null,null],"type":"scatter"},{"connectgaps":false,"line":{"color":"#00AFA0","dash":"dot","width":1.5},"marker":{"size":4},"mode":"lines+markers","name":"Lloyds","opacity":0.75,"x":["Mar 23","Mar 24","Mar 25","Mar 26","Mar 27","Mar 28","Mar 29","Mar 30","Mar 31","Apr 01","Apr 02","Apr 03","Apr 04","Apr 05"],"y":[63.3,88.6,75.0,66.0,80.0,45.0,80.0,84.0,90.0,60.0,82.2,80.0,null,null],"type":"scatter"},{"connectgaps":false,"line":{"color":"#7B5EA7","dash":"dot","width":1.5},"marker":{"size":4},"mode":"lines+markers","name":"Monzo","opacity":0.75,"x":["Mar 23","Mar 24","Mar 25","Mar 26","Mar 27","Mar 28","Mar 29","Mar 30","Mar 31","Apr 01","Apr 02","Apr 03","Apr 04","Apr 05"],"y":[90.0,88.6,100.0,100.0,91.4,null,null,100.0,null,60.0,null,null,null,null],"type":"scatter"},{"connectgaps":false,"line":{"color":"#4A9BD4","dash":"dot","width":1.5},"marker":{"size":4},"mode":"lines+markers","name":"Revolut","opacity":0.75,"x":["Mar 23","Mar 24","Mar 25","Mar 26","Mar 27","Mar 28","Mar 29","Mar 30","Mar 31","Apr 01","Apr 02","Apr 03","Apr 04","Apr 05"],"y":[91.1,80.4,90.3,90.0,82.1,null,88.0,86.4,84.4,90.3,90.3,88.0,80.0,null],"type":"scatter"},{"connectgaps":false,"fill":"tozeroy","fillcolor":"rgba(0,174,239,0.05)","line":{"color":"#00AEEF","width":3},"marker":{"color":"#00AEEF","size":6},"mode":"lines+markers","name":"Barclays","x":["Mar 23","Mar 24","Mar 25","Mar 26","Mar 27","Mar 28","Mar 29","Mar 30","Mar 31","Apr 01","Apr 02","Apr 03","Apr 04","Apr 05"],"y":[90.0,92.9,88.9,92.3,75.0,80.0,88.6,91.0,81.9,91.5,89.4,83.0,null,null],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"shapes":[{"line":{"color":"#003A5C","dash":"dash","width":1},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":75,"y1":75,"yref":"y"}],"annotations":[{"font":{"color":"#4A7A8F","size":10},"showarrow":false,"text":"75 floor","x":1,"xanchor":"left","xref":"x domain","y":75,"yanchor":"middle","yref":"y"}],"font":{"family":"DM Mono, monospace","color":"#7AACBF","size":11},"margin":{"l":40,"r":20,"t":10,"b":60},"xaxis":{"tickfont":{"size":10},"showgrid":false,"zeroline":false,"nticks":7},"yaxis":{"tickfont":{"size":10},"range":[0,105],"showgrid":true,"gridcolor":"#003A5C","gridwidth":0.5,"zeroline":false,"dtick":25},"legend":{"font":{"size":10},"orientation":"h","y":-0.22,"x":0,"bgcolor":"rgba(0,0,0,0)","borderwidth":0},"paper_bgcolor":"#001828","plot_bgcolor":"#00273D","height":280,"hovermode":"x unified"},                        {"displayModeBar": false, "responsive": true}                    )                };            </script>        </div>
+<div class="topbar-box">
+  <div class="topbar-box-header" style="background:#001828;border-bottom:1px solid #003A5C;">
+    <span class="topbar-box-title" style="color:#7AACBF;">VANE TRAJECTORY</span>
+    <span style="font-size:10px;color:#3A6A7F;">14-day daily sentiment &middot; App Store + Google Play</span>
+  </div>
+  <div class="topbar-box-body">
+    <div>                            <div id="d4f51d0f-b4c5-44c2-bb54-e9d4295116ae" class="plotly-graph-div" style="height:280px; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("d4f51d0f-b4c5-44c2-bb54-e9d4295116ae")) {                    Plotly.newPlot(                        "d4f51d0f-b4c5-44c2-bb54-e9d4295116ae",                        [{"connectgaps":false,"line":{"color":"#F5A623","dash":"dot","width":1.5},"marker":{"size":4},"mode":"lines+markers","name":"NatWest","opacity":0.75,"x":["Mar 23","Mar 24","Mar 25","Mar 26","Mar 27","Mar 28","Mar 29","Mar 30","Mar 31","Apr 01","Apr 02","Apr 03","Apr 04","Apr 05"],"y":[57.1,63.6,69.5,77.6,86.7,90.5,87.6,77.5,62.5,84.2,74.3,75.8,null,null],"type":"scatter"},{"connectgaps":false,"line":{"color":"#00AFA0","dash":"dot","width":1.5},"marker":{"size":4},"mode":"lines+markers","name":"Lloyds","opacity":0.75,"x":["Mar 23","Mar 24","Mar 25","Mar 26","Mar 27","Mar 28","Mar 29","Mar 30","Mar 31","Apr 01","Apr 02","Apr 03","Apr 04","Apr 05"],"y":[63.3,88.6,75.0,66.0,80.0,45.0,80.0,84.0,90.0,60.0,82.2,80.0,null,null],"type":"scatter"},{"connectgaps":false,"line":{"color":"#7B5EA7","dash":"dot","width":1.5},"marker":{"size":4},"mode":"lines+markers","name":"Monzo","opacity":0.75,"x":["Mar 23","Mar 24","Mar 25","Mar 26","Mar 27","Mar 28","Mar 29","Mar 30","Mar 31","Apr 01","Apr 02","Apr 03","Apr 04","Apr 05"],"y":[90.0,88.6,100.0,100.0,91.4,null,null,100.0,null,60.0,null,null,null,null],"type":"scatter"},{"connectgaps":false,"line":{"color":"#4A9BD4","dash":"dot","width":1.5},"marker":{"size":4},"mode":"lines+markers","name":"Revolut","opacity":0.75,"x":["Mar 23","Mar 24","Mar 25","Mar 26","Mar 27","Mar 28","Mar 29","Mar 30","Mar 31","Apr 01","Apr 02","Apr 03","Apr 04","Apr 05"],"y":[91.1,80.4,90.3,90.0,82.1,null,88.0,86.4,84.4,90.3,90.3,88.0,80.0,null],"type":"scatter"},{"connectgaps":false,"fill":"tozeroy","fillcolor":"rgba(0,174,239,0.05)","line":{"color":"#00AEEF","width":3},"marker":{"color":"#00AEEF","size":6},"mode":"lines+markers","name":"Barclays","x":["Mar 23","Mar 24","Mar 25","Mar 26","Mar 27","Mar 28","Mar 29","Mar 30","Mar 31","Apr 01","Apr 02","Apr 03","Apr 04","Apr 05"],"y":[90.0,92.9,88.9,92.3,75.0,80.0,88.6,91.0,81.9,91.5,89.4,83.0,null,null],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"shapes":[{"line":{"color":"#003A5C","dash":"dash","width":1},"type":"line","x0":0,"x1":1,"xref":"x domain","y0":75,"y1":75,"yref":"y"}],"annotations":[{"font":{"color":"#4A7A8F","size":10},"showarrow":false,"text":"75 floor","x":1,"xanchor":"left","xref":"x domain","y":75,"yanchor":"middle","yref":"y"}],"font":{"family":"DM Mono, monospace","color":"#7AACBF","size":11},"margin":{"l":40,"r":20,"t":10,"b":60},"xaxis":{"tickfont":{"size":10},"showgrid":false,"zeroline":false,"nticks":7},"yaxis":{"tickfont":{"size":10},"range":[0,105],"showgrid":true,"gridcolor":"#003A5C","gridwidth":0.5,"zeroline":false,"dtick":25},"legend":{"font":{"size":10},"orientation":"h","y":-0.22,"x":0,"bgcolor":"rgba(0,0,0,0)","borderwidth":0},"paper_bgcolor":"#001828","plot_bgcolor":"#00273D","height":280,"hovermode":"x unified"},                        {"displayModeBar": false, "responsive": true}                    )                };            </script>        </div>
+  </div>
 </div>
   
-<div class="v2-section">
-  <div class="v2-section-title">INTELLIGENCE FINDINGS — TOP 10 BY CONFIDENCE</div>
-  <div class="v2-section-sub">
-    110 total findings &nbsp;·&nbsp;
-    <span style="color:#CC0000;">36 ceiling</span> &nbsp;·&nbsp;
-    3 P1-tier &nbsp;·&nbsp;
-    0 countersigned
+<div class="topbar-box">
+  <div class="topbar-box-header" style="background:#001828;border-bottom:1px solid #003A5C;">
+    <span class="topbar-box-title" style="color:#7AACBF;">INTELLIGENCE FINDINGS</span>
+    <span style="font-size:10px;color:#3A6A7F;">
+      110 total &nbsp;&middot;&nbsp;
+      <span style="color:#CC0000;">36 ceiling</span> &nbsp;&middot;&nbsp;
+      3 P1 &nbsp;&middot;&nbsp;
+      0 countersigned
+    </span>
   </div>
-  
+  <div class="topbar-box-body">
+    
 <div class="inf-card" style="border-left-color:#CC0000;">
   <div class="inf-header">
     <span class="inf-id">MIL-F-20260405-057</span>
@@ -1118,15 +1120,16 @@ document.addEventListener('click', function(e) {
     <span class="inf-kw"><span class="kw-pill">support</span><span class="kw-pill">comment</span><span class="kw-pill">indicating</span></span>
   </div>
 </div>
+  </div>
 </div>
   
-<div class="v2-section">
-  <div class="v2-section-title">CLARK PROTOCOL — ESCALATION STATUS</div>
-  <div class="v2-section-sub">
-    System status: <span style="color:#CC0000;font-weight:700;">CLARK-3 — ACT NOW</span>
-    &nbsp;·&nbsp; 6 active escalations
+<div class="topbar-box">
+  <div class="topbar-box-header" style="background:#001828;border-bottom:1px solid #003A5C;">
+    <span class="topbar-box-title" style="color:#7AACBF;">CLARK PROTOCOL</span>
+    <span style="font-size:10px;color:#CC0000;font-weight:700;">CLARK-3 &mdash; ACT NOW</span>
   </div>
-  <div class="clark-strip">
+  <div class="topbar-box-body">
+    <div class="clark-strip">
 <div class="clark-tile" style="border-top-color:#CC0000;">
   <div class="clark-count" style="color:#CC0000;">2</div>
   <div class="clark-tier">CLARK-3</div>
@@ -1147,7 +1150,7 @@ document.addEventListener('click', function(e) {
   <div class="clark-tier">CLARK-0</div>
   <div class="clark-label">NOMINAL</div>
 </div></div>
-  <div class="clark-rows">
+    <div class="clark-rows">
 <div class="clark-row" style="border-left-color:#CC0000;">
   <span class="clark-badge" style="background:rgba(0,0,0,0.3);color:#CC0000;">CLARK-3 ACT NOW</span>
   <span class="clark-fid">MIL-F-20260405-032</span>
@@ -1196,33 +1199,31 @@ document.addEventListener('click', function(e) {
   <span class="clark-reason">P2 tier + CAC 0.559 >= 0.55 + CHR-001</span>
   <span class="clark-ts">2026-04-05 11:16</span>
 </div></div>
+  </div>
 </div>
   
-<div class="v2-section">
-  <div class="v2-section-title">PHASE 2 DEMAND — EXIT STRATEGY TRACKER</div>
-  <div class="v2-section-sub">
-    Each ceiling finding below cannot be confirmed from public data alone.
-    Phase 2 connects internal telemetry to close the gap.
+<div class="topbar-box">
+  <div class="topbar-box-header" style="background:#001828;border-bottom:1px solid #003A5C;">
+    <span class="topbar-box-title" style="color:#7AACBF;">PHASE 2 DEMAND</span>
+    <span style="font-size:10px;color:#3A6A7F;">8 ceiling findings &middot; internal telemetry required</span>
   </div>
-  <div style="display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap;">
-    <div class="p2-stat">
-      <div class="p2-num" style="color:#00AEEF;">0</div>
-      <div class="p2-lbl">Phase 2 Requests</div>
+  <div class="topbar-box-body">
+    <div style="display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap;">
+      <div class="p2-stat">
+        <div class="p2-num" style="color:#00AEEF;">0</div>
+        <div class="p2-lbl">Phase 2 Requests</div>
+      </div>
+      <div class="p2-stat">
+        <div class="p2-num" style="color:#F5A623;">0</div>
+        <div class="p2-lbl">Unique Findings</div>
+      </div>
+      <div class="p2-stat" style="flex:1;">
+        <div style="font-size:10px;color:#3A6A7F;margin-bottom:4px;">BY COMPETITOR</div>
+        <span style="color:#3A6A7F;font-size:11px;">No requests logged yet</span>
+        <div style="font-size:9px;color:#3A6A7F;margin-top:6px;">Last request: None</div>
+      </div>
     </div>
-    <div class="p2-stat">
-      <div class="p2-num" style="color:#F5A623;">0</div>
-      <div class="p2-lbl">Unique Findings</div>
-    </div>
-    <div class="p2-stat" style="flex:1;">
-      <div style="font-size:10px;color:#3A6A7F;margin-bottom:4px;">BY COMPETITOR</div>
-      <span style="color:#3A6A7F;font-size:11px;">No requests logged yet</span>
-      <div style="font-size:9px;color:#3A6A7F;margin-top:6px;">Last request: None</div>
-    </div>
-  </div>
-  <div style="font-size:9px;color:#3A6A7F;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;">
-    8 ceiling findings awaiting Phase 2 confirmation
-  </div>
-  
+    
 <div style="background:#001828;border:1px solid #003A5C;border-left:3px solid #CC0000;
             border-radius:5px;padding:8px 12px;margin-bottom:6px;
             display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
@@ -1287,6 +1288,7 @@ document.addEventListener('click', function(e) {
   <span style="font-family:'DM Mono',monospace;font-size:10px;color:#F5A623;">CAC 0.532</span>
   <span style="font-size:10px;color:#7AACBF;flex:1;">Identifying user frustration after months of bank account identity opened</span>
 </div>
+  </div>
 </div>
 </div>
 
