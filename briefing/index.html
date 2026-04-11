@@ -154,7 +154,10 @@ a { color: var(--blue); text-decoration: none; }
 .exec-alert-section-text { font-size: 13px; color: var(--text-2); line-height: 1.5; padding-bottom: 4px; }
 .exec-alert-footer { padding: 8px 14px; border-top: 1px solid #2A1010; }
 .exec-escalate-btn { background: rgba(204,0,0,0.15); color: #FF4444; border: 1px solid rgba(204,0,0,0.4); border-radius: 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; padding: 5px 14px; cursor: pointer; width: 100%; font-family: var(--sans); text-transform: uppercase; }
-.exec-escalate-btn:hover { background: rgba(204,0,0,0.25); }
+.exec-escalate-btn:hover { opacity: 0.8; }
+.exec-alert-footnote { padding: 8px 14px 10px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.exec-alert-footnote span { font-size: 10px; color: var(--text-3); font-family: var(--mono); line-height: 1.4; }
+.exec-fn-sep { color: var(--text-3); opacity: 0.4; padding: 0 2px; }
 /* Nominal body text */
 .exec-nominal-badge { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: #00AFA0; margin-bottom: 8px; }
 .exec-nominal-text { font-size: 11px; color: var(--text-2); line-height: 1.5; }
@@ -453,6 +456,10 @@ a { color: var(--blue); text-decoration: none; }
       </div>
       <div class="exec-alert-section-label">NEXT STEPS</div>
       <div class="exec-alert-section-text">This belongs on the incident board today. If it is not already there, that is the first failure. Escalate now.</div>
+      <button class="exec-escalate-btn" style="background:rgba(204,0,0,0.18);color:#FF4444;border:1px solid rgba(204,0,0,0.4);border-radius:6px;font-size:13px;font-weight:700;letter-spacing:0.08em;padding:6px 14px;cursor:pointer;width:100%;font-family:var(--sans);text-transform:uppercase;margin-top:10px;">ACT NOW</button>
+    </div>
+    <div class="exec-alert-footnote">
+      <span>P0 — customer blocked</span>      <span class="exec-fn-sep">·</span>      <span>P1 — significant friction</span>      <span class="exec-fn-sep">·</span>      <span>CAC — signal confidence (0–1)</span>      <span class="exec-fn-sep">·</span>      <span>CLARK-3 — act now &nbsp;CLARK-2 — escalate &nbsp;CLARK-1 — watch</span>
     </div>
   </div>
 </div>
@@ -671,7 +678,7 @@ a { color: var(--blue); text-decoration: none; }
   <span class="footer-sep">-</span>
   <span class="footer-item">Article Zero</span>
   <span class="footer-sep">-</span>
-  <span class="footer-item">Published 2026-04-11 07:02 UTC</span>
+  <span class="footer-item">Published 2026-04-11 11:17 UTC</span>
 </div>
 
 <!-- -- Ask Sonar Button ----------------------------------------------------- -->
