@@ -69,6 +69,12 @@ a { color: var(--blue); text-decoration: none; }
 .issues-stat-label { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-3); text-transform: uppercase; }
 .issues-stat-sub { font-size: 13px; color: var(--text-2); margin-top: 2px; }
 .issues-divider { height: 1px; background: #003A5C; margin: 4px 0; }
+/* Box 2 legend — compact footnote explaining REGRESSION/WATCH/PERFORMING WELL */
+.box2-legend { margin-top: 14px; padding-top: 10px; border-top: 1px solid #003A5C;
+                display: flex; flex-direction: column; gap: 4px; }
+.box2-legend-item { display: flex; align-items: baseline; gap: 8px; font-size: 10px; line-height: 1.4; }
+.box2-legend-label { font-weight: 800; letter-spacing: 1px; text-transform: uppercase; min-width: 110px; }
+.box2-legend-def { color: #4A7A8F; }
 /* Journey list in box 2 */
 .journey-list-item { display: flex; align-items: center; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #001E30; font-size: 14px; }
 .journey-list-item:last-child { border-bottom: none; }
@@ -449,7 +455,12 @@ a { color: var(--blue); text-decoration: none; }
             <span class="journey-list-status" style="color:#CC0000;">&#8600; REGRESSION</span>
           </span>
         </div>
-<div style="height:104px;border:1px solid #003A5C;border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:#001E2E;overflow:hidden;"><div style="font-size:10px;color:#3A6A7F;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">App Crashing</div><div style="font-size:12px;color:#B8D4E0;font-style:italic;line-height:1.5;overflow:hidden;">&ldquo;Update as for April 2026: The app keep crashing when try to view the &quot;Your Card&quot; details.&rdquo;</div><div style="font-size:11px;color:#4A7A8F;margin-top:6px;letter-spacing:0.03em;white-space:nowrap;">★★☆☆☆ &middot; Google Play &middot; 17 Apr</div></div>    </div>
+<div style="height:104px;border:1px solid #003A5C;border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:#001E2E;overflow:hidden;"><div style="font-size:10px;color:#3A6A7F;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">App Crashing</div><div style="font-size:12px;color:#B8D4E0;font-style:italic;line-height:1.5;overflow:hidden;">&ldquo;Update as for April 2026: The app keep crashing when try to view the &quot;Your Card&quot; details.&rdquo;</div><div style="font-size:11px;color:#4A7A8F;margin-top:6px;letter-spacing:0.03em;white-space:nowrap;">★★☆☆☆ &middot; Google Play &middot; 17 Apr</div></div>      <div class="box2-legend">
+        <div class="box2-legend-item"><span class="box2-legend-label" style="color:var(--red);">REGRESSION</span><span class="box2-legend-def">P0 present or worsening P1s</span></div>
+        <div class="box2-legend-item"><span class="box2-legend-label" style="color:var(--amber);">WATCH</span><span class="box2-legend-def">P1 present or trend worsening</span></div>
+        <div class="box2-legend-item"><span class="box2-legend-label" style="color:var(--teal);">PERFORMING WELL</span><span class="box2-legend-def">no severe signal</span></div>
+      </div>
+    </div>
   </div>
   <div class="topbar-box exec-alert-panel">
   <div class="topbar-box-header" style="background:#001828;border-bottom:1px solid #003A5C;">
@@ -488,7 +499,7 @@ a { color: var(--blue); text-decoration: none; }
     <div style="margin-bottom:14px;">
       <div style="font-size:9px;color:#3A6A7F;text-transform:uppercase;
                   letter-spacing:1px;margin-bottom:5px;">The Situation</div>
-      <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Persistent crash rates running more than double the peer average expose Barclays to FCA duty-of-care scrutiny over denied payment access. Customers report card controls, PIN retrieval, and OTP generation all failing on crash, with cache clearing providing no relief. Ship a targeted fix for the card-navigation and OTP session flows this week, before regulators note the same three-week delay that damaged HSBC in 2025.</div>
+      <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Persistent app crashes blocking card controls and OTP delivery expose Barclays to duty-of-care scrutiny from the FCA. Customers report that cache clears fail to restore card or PIN access, with Barclays crashing at 2.1x the peer rate. Ship an Android hotfix by Friday; HSBC's 2025 post-refresh incident shows three weeks without a fix invites both regulator attention and lasting review-score damage.</div>
     </div>
     <div style="font-size:11px;color:#4A7A8F;font-style:italic;
                 border-left:2px solid #003A5C;padding-left:10px;
@@ -727,7 +738,7 @@ a { color: var(--blue); text-decoration: none; }
   <span class="footer-sep">-</span>
   <span class="footer-item">Article Zero</span>
   <span class="footer-sep">-</span>
-  <span class="footer-item">Published 2026-04-21 19:59 UTC</span>
+  <span class="footer-item">Published 2026-04-21 20:07 UTC</span>
 </div>
 
 <!-- -- Ask Sonar Button ----------------------------------------------------- -->
@@ -937,7 +948,7 @@ document.addEventListener('click', function(e) {
 <hr class="v3-divider">
 <div class="v3-outer">
   <div class="v3-label">
-    Sonar V3 &nbsp;&middot;&nbsp; Intelligence Layer &nbsp;&middot;&nbsp; 2026-04-21 19:59 UTC
+    Sonar V3 &nbsp;&middot;&nbsp; Intelligence Layer &nbsp;&middot;&nbsp; 2026-04-21 20:07 UTC
   </div>
   
 <div class="topbar-box">
@@ -1001,7 +1012,7 @@ document.addEventListener('click', function(e) {
           <div class="commentary-stat">Active <span>15 days</span></div>
           <div class="commentary-stat">Since <span>2026-04-03</span></div>
         </div>
-        <div class="commentary-prose">Persistent crash rates running more than double the peer average expose Barclays to FCA duty-of-care scrutiny over denied payment access. Customers report card controls, PIN retrieval, and OTP generation all failing on crash, with cache clearing providing no relief. Ship a targeted fix for the card-navigation and OTP session flows this week, before regulators note the same three-week delay that damaged HSBC in 2025.</div>
+        <div class="commentary-prose">Persistent app crashes blocking card controls and OTP delivery expose Barclays to duty-of-care scrutiny from the FCA. Customers report that cache clears fail to restore card or PIN access, with Barclays crashing at 2.1x the peer rate. Ship an Android hotfix by Friday; HSBC's 2025 post-refresh incident shows three weeks without a fix invites both regulator attention and lasting review-score damage.</div>
         <div class="commentary-quote">&ldquo;Dreadful. Can't access cards on it, each time I do it keeps crashing and clearing cache does nothing so I can't check my pin numbers or anything in relation to my card nor barclaycard.&rdquo;</div>
         <div class="commentary-chr">Chronicle context: HSBC 2025: post-refresh crashes and ERR03 errors ran three weeks before a fix....</div>
       </div>
@@ -1019,7 +1030,7 @@ document.addEventListener('click', function(e) {
           <div class="commentary-stat">Active <span>15 days</span></div>
           <div class="commentary-stat">Since <span>2026-04-03</span></div>
         </div>
-        <div class="commentary-prose">Broken self-service features expose Barclays to FCA scrutiny over adequate digital access obligations. Customers cannot cancel direct debits or update mortgage details, with Barclays complaints running 4.5 points above the peer average. Prioritise a targeted fix for direct-debit and account-management flows within five business days before regulators cite it as evidence of inadequate service availability.</div>
+        <div class="commentary-prose">Broken self-service features expose Barclays to FCA scrutiny over customers' inability to manage direct debits and mortgage payments unaided. Reviewers report direct-debit cancellation and personal-detail updates failing repeatedly, with Barclays' complaint rate running 4.5 percentage points above the six-bank peer average. Prioritise a targeted fix for direct-debit and notification functionality this week, before regulators cite this gap as evidence of inadequate digital service availability.</div>
         <div class="commentary-quote">&ldquo;You cant change your mortgage direct debits in any way on here - useless!&rdquo;</div>
       </div>
       <div class="commentary-card risk">
@@ -1036,7 +1047,7 @@ document.addEventListener('click', function(e) {
           <div class="commentary-stat">Active <span>15 days</span></div>
           <div class="commentary-stat">Since <span>2026-04-03</span></div>
         </div>
-        <div class="commentary-prose">Persistent payment failures on the Barclays app expose the bank to FCA duty-of-care scrutiny over access to essential services. Customers report authorisation loops that close mid-payment and blocked PIN entry, with Barclays' complaint rate running 0.7 percentage points above the six-peer average. Ship a targeted fix for the payment-authorisation and PIN-entry flow by end of this week, before regulators treat the streak as evidence of inadequate service availability.</div>
+        <div class="commentary-prose">Persistent payment authorisation failures on the Barclays app create direct duty-of-care liability under FCA Consumer Duty rules. Customers report being mid-transaction when the app closes, leaving payments unprocessed and PIN entry broken, with Barclays running 0.7 percentage points above the peer failure rate. Ship a targeted fix to the payment authorisation flow by Friday and brief customer support on a same-day response protocol for affected users.</div>
         <div class="commentary-quote">&ldquo;Terrible app sends me to authorise payments to my bank then app closes and doesn't take payment.&rdquo;</div>
       </div>
       <div class="commentary-card strength">
@@ -1051,7 +1062,7 @@ document.addEventListener('click', function(e) {
           <div class="commentary-stat">Peer avg <span>7.5%</span></div>
           <div class="commentary-stat">Gap <span style="color:#00AFA0;">-3.8pp</span></div>
         </div>
-        <div class="commentary-prose">Barclays delivers notably more reliable login authentication than rivals, with far fewer customers hitting technical access failures. When a competitor's customer gets locked out mid-session, they increasingly abandon that app and trial a secondary bank's digital services instead.</div>
+        <div class="commentary-prose">Barclays delivers a significantly more reliable login experience than peers, with fewer customers hitting authentication failures at the app's front door. When users can access their account on the first attempt, they complete more sessions and are less likely to explore competitor apps out of frustration.</div>
         <div class="commentary-quote">&ldquo;Absolute dross of an application. Updated it and needed a card reader just to log in again which took ages to arrive and therefore missed payment which will affect my credit because of some stupid developer.&rdquo;</div>
       </div>
     </div>
