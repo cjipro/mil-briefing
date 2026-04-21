@@ -452,24 +452,30 @@ a { color: var(--blue); text-decoration: none; }
   <div style="color:#7AACBF;font-size:11px;margin-top:4px;">Volume is low by design: P0 failures are rare until they aren't.</div>
 </div>
     
-<div style="display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;
-            padding:8px 10px;background:#001828;border:1px solid #003A5C;
-            border-radius:3px;margin-bottom:12px;font-size:11px;">
-  <span style="color:#E8F4FA;font-weight:700;font-size:14px;">6 of 218 reviews</span>
-  <span style="color:#7AACBF;">cite this issue, last 7 days</span>
-  <span style="color:#00AFA0;font-weight:600;">&darr; 40% vs prior week</span>
-  <span style="color:#3A6A7F;">&middot;</span>
-  <span style="color:#7AACBF;">15 days sustained</span>
-  <span style="color:#3A6A7F;">&middot;</span>
-  <span style="color:#7AACBF;">+6.9pp vs peers</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+  <div style="flex:1 1 140px;min-width:140px;padding:12px 14px;background:#001828;border:1px solid #003A5C;border-radius:4px;">
+    <div style="font-family:'DM Mono',monospace;font-size:24px;font-weight:700;line-height:1;margin-bottom:6px;letter-spacing:0.5px;color:#00AFA0;">&darr; 40%</div>
+    <div style="font-size:9px;color:#7AACBF;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:4px;font-weight:600;">WoW volume</div>
+    <div style="font-size:10px;color:#4A7A8F;font-family:'DM Mono',monospace;">6 reviews this week</div>
+  </div>
+  <div style="flex:1 1 140px;min-width:140px;padding:12px 14px;background:#001828;border:1px solid #003A5C;border-radius:4px;">
+    <div style="font-family:'DM Mono',monospace;font-size:24px;font-weight:700;line-height:1;margin-bottom:6px;letter-spacing:0.5px;color:#CC0000;">+6.9pp</div>
+    <div style="font-size:9px;color:#7AACBF;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:4px;font-weight:600;">vs peer avg</div>
+    <div style="font-size:10px;color:#4A7A8F;font-family:'DM Mono',monospace;">12.9% vs 6.0%</div>
+  </div>
+  <div style="flex:1 1 140px;min-width:140px;padding:12px 14px;background:#001828;border:1px solid #003A5C;border-radius:4px;">
+    <div style="font-family:'DM Mono',monospace;font-size:24px;font-weight:700;line-height:1;margin-bottom:6px;letter-spacing:0.5px;color:#CC0000;">15d</div>
+    <div style="font-size:9px;color:#7AACBF;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:4px;font-weight:600;">sustained</div>
+    <div style="font-size:10px;color:#4A7A8F;font-family:'DM Mono',monospace;">since 2026-04-03</div>
+  </div>
 </div>
-<div style="font-size:9px;color:#3A6A7F;font-style:italic;margin-top:-6px;margin-bottom:14px;">
+<div style="font-size:9px;color:#3A6A7F;font-style:italic;margin-bottom:14px;">
   Public reviews are surface signal. True customer impact is typically orders of magnitude larger.
 </div>
     <div style="margin-bottom:14px;">
       <div style="font-size:9px;color:#3A6A7F;text-transform:uppercase;
                   letter-spacing:1px;margin-bottom:5px;">The Situation</div>
-      <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Persistent app crashes blocking card access and OTP retrieval expose Barclays to FCA duty-of-care scrutiny over denied payment access. Customers cannot retrieve PINs or complete account setup, with Barclays' crash rate running more than double the six-peer average. Ship a targeted hotfix for card-access and OTP session flows this week, before this streak mirrors HSBC's 2025 post-refresh incident, which ran three weeks before resolution.</div>
+      <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Persistent crash rates running at more than double the peer average expose Barclays to FCA duty-of-care scrutiny over denied account access. Customers report card controls, PIN retrieval, and OTP generation all failing, with cache clears offering no relief. Ship an emergency hotfix by end of week; HSBC's 2025 post-refresh incident shows a three-week delay invites both regulator attention and accelerated churn.</div>
     </div>
     <div style="font-size:11px;color:#4A7A8F;font-style:italic;
                 border-left:2px solid #003A5C;padding-left:10px;
@@ -918,7 +924,7 @@ document.addEventListener('click', function(e) {
 <hr class="v3-divider">
 <div class="v3-outer">
   <div class="v3-label">
-    Sonar V3 &nbsp;&middot;&nbsp; Intelligence Layer &nbsp;&middot;&nbsp; 2026-04-21 18:27 UTC
+    Sonar V3 &nbsp;&middot;&nbsp; Intelligence Layer &nbsp;&middot;&nbsp; 2026-04-21 18:43 UTC
   </div>
   
 <div class="topbar-box">
@@ -982,7 +988,7 @@ document.addEventListener('click', function(e) {
           <div class="commentary-stat">Active <span>15 days</span></div>
           <div class="commentary-stat">Since <span>2026-04-03</span></div>
         </div>
-        <div class="commentary-prose">Persistent app crashes blocking card access and OTP retrieval expose Barclays to FCA duty-of-care scrutiny over denied payment access. Customers cannot retrieve PINs or complete account setup, with Barclays' crash rate running more than double the six-peer average. Ship a targeted hotfix for card-access and OTP session flows this week, before this streak mirrors HSBC's 2025 post-refresh incident, which ran three weeks before resolution.</div>
+        <div class="commentary-prose">Persistent crash rates running at more than double the peer average expose Barclays to FCA duty-of-care scrutiny over denied account access. Customers report card controls, PIN retrieval, and OTP generation all failing, with cache clears offering no relief. Ship an emergency hotfix by end of week; HSBC's 2025 post-refresh incident shows a three-week delay invites both regulator attention and accelerated churn.</div>
         <div class="commentary-quote">&ldquo;Dreadful. Can't access cards on it, each time I do it keeps crashing and clearing cache does nothing so I can't check my pin numbers or anything in relation to my card nor barclaycard.&rdquo;</div>
         <div class="commentary-chr">Chronicle context: HSBC 2025: post-refresh crashes and ERR03 errors ran three weeks before a fix....</div>
       </div>
@@ -1000,7 +1006,7 @@ document.addEventListener('click', function(e) {
           <div class="commentary-stat">Active <span>15 days</span></div>
           <div class="commentary-stat">Since <span>2026-04-03</span></div>
         </div>
-        <div class="commentary-prose">Broken self-service features — direct debit cancellation, mortgage management, and profile updates — expose Barclays to FCA duty-of-care scrutiny over denied customer control. Reviewers cite inability to cancel direct debits or amend mortgage payments, with Barclays complaints running 4.5 percentage points above the six-peer average. Prioritise a P2 fix sprint this week, targeting direct debit and mortgage self-service flows before regulators cite this gap in the next supervisory review.</div>
+        <div class="commentary-prose">Broken self-service features—blocked direct-debit edits, failed notifications, and multi-attempt detail updates—expose Barclays to FCA duty-of-care scrutiny over denied account control. Customers explicitly cannot cancel direct debits or update personal details, with Barclays' complaint rate running 4.5 percentage points above the six-bank peer average. Prioritise a targeted fix for direct-debit management and notification delivery within five working days before regulators log this as a denied-access incident.</div>
         <div class="commentary-quote">&ldquo;You cant change your mortgage direct debits in any way on here - useless!&rdquo;</div>
       </div>
       <div class="commentary-card risk">
@@ -1017,7 +1023,7 @@ document.addEventListener('click', function(e) {
           <div class="commentary-stat">Active <span>15 days</span></div>
           <div class="commentary-stat">Since <span>2026-04-03</span></div>
         </div>
-        <div class="commentary-prose">Persistent payment-authorisation failures on the Barclays app expose the bank to FCA duty-of-care scrutiny over access to payment services. Customers report the app closing mid-authorisation and PIN entry failing to complete transactions, with Barclays' complaint rate running 0.7 percentage points above peers. Escalate this to a P0 hotfix deployment by end of this week, targeting the authorisation handoff and PIN session logic directly.</div>
+        <div class="commentary-prose">Payment failures closing the app mid-authorisation put Barclays within reach of FCA access-to-banking-services enforcement. Customers report mid-flow crashes during card authorisation and PIN entry, with Barclays' complaint rate running 0.7 points above the peer average. Deploy a targeted hotfix addressing the authorisation redirect loop by end of week, before regulators log this as a service-availability breach.</div>
         <div class="commentary-quote">&ldquo;Terrible app sends me to authorise payments to my bank then app closes and doesn't take payment.&rdquo;</div>
       </div>
       <div class="commentary-card strength">
@@ -1032,7 +1038,7 @@ document.addEventListener('click', function(e) {
           <div class="commentary-stat">Peer avg <span>7.5%</span></div>
           <div class="commentary-stat">Gap <span style="color:#00AFA0;">-3.8pp</span></div>
         </div>
-        <div class="commentary-prose">Barclays delivers a significantly more reliable authentication experience, with login failures occurring at roughly half the rate seen across peer banks. Customers who authenticate without friction are demonstrably less likely to abandon sessions, reducing the risk of them discovering a competitor app during a moment of frustration.</div>
+        <div class="commentary-prose">Barclays delivers notably more reliable authentication, keeping failed login friction well below what customers encounter at rival banks. When users consistently access their account on the first attempt, they build habitual daily engagement that makes switching feel genuinely disruptive.</div>
         <div class="commentary-quote">&ldquo;Absolute dross of an application. Updated it and needed a card reader just to log in again which took ages to arrive and therefore missed payment which will affect my credit because of some stupid developer.&rdquo;</div>
       </div>
     </div>
