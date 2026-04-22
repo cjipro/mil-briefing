@@ -319,12 +319,13 @@ a { color: var(--blue); text-decoration: none; }
 
 /* -- Chat Panel ------------------------------------------------------------- */
 .chat-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }
-.chat-panel { position: fixed; bottom: 80px; right: 24px; width: 360px; max-height: 500px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; display: none; flex-direction: column; z-index: 1001; box-shadow: 0 8px 40px rgba(0,0,0,0.6); overflow: hidden; }
+.chat-panel { position: fixed; bottom: 80px; right: 24px; width: 440px; height: 620px; max-height: calc(100vh - 110px); background: var(--card); border: 1px solid var(--border); border-radius: 12px; display: none; flex-direction: column; z-index: 1001; box-shadow: 0 8px 40px rgba(0,0,0,0.6); overflow: hidden; }
 .chat-panel.open { display: flex; }
-.chat-header { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+.chat-header { padding: 10px 14px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; background: var(--topbar-bg); }
 .chat-title { font-size: 13px; font-weight: 700; color: var(--text); flex: 1; }
-.chat-close { background: none; border: none; color: var(--text-3); cursor: pointer; font-size: 18px; line-height: 1; padding: 0 4px; }
+.chat-close { background: none; border: none; color: var(--text-3); cursor: pointer; font-size: 20px; line-height: 1; padding: 0 4px; }
 .chat-close:hover { color: var(--text); }
+.chat-iframe { flex: 1; border: 0; width: 100%; background: #00273D; }
 .chat-messages { flex: 1; padding: 12px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; min-height: 160px; }
 .chat-chips { padding: 8px 12px; display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid var(--border); }
 .chip { background: var(--border); color: var(--blue); border: 1px solid rgba(0,174,239,0.2); border-radius: 14px; padding: 4px 10px; font-size: 11px; cursor: pointer; transition: background 0.15s; }
@@ -422,8 +423,8 @@ a { color: var(--blue); text-decoration: none; }
         <div class="journey-list-item">
           <span class="journey-list-name">Feature Broken</span>
           <span class="journey-list-right">
-            <span class="journey-list-score" style="color:#E8F4FA;">53</span>
-            <span class="journey-list-meta">22 reviews &middot; 15d sustained</span>
+            <span class="journey-list-score" style="color:#E8F4FA;">54</span>
+            <span class="journey-list-meta">18 reviews &middot; 15d sustained</span>
             <span class="journey-list-status" style="color:#00AFA0;">&#8599; PERFORMING WELL</span>
           </span>
         </div>
@@ -446,20 +447,20 @@ a { color: var(--blue); text-decoration: none; }
         <div class="journey-list-item">
           <span class="journey-list-name">Payment Failed</span>
           <span class="journey-list-right">
-            <span class="journey-list-score" style="color:#cc3333;">47</span>
-            <span class="journey-list-meta">3 reviews &middot; 15d sustained</span>
+            <span class="journey-list-score" style="color:#cc3333;">40</span>
+            <span class="journey-list-meta">2 reviews &middot; 15d sustained</span>
             <span class="journey-list-status" style="color:#CC0000;">&#8600; REGRESSION</span>
           </span>
         </div>
         <div class="journey-list-item">
-          <span class="journey-list-name">Login Failed</span>
+          <span class="journey-list-name">Account Locked</span>
           <span class="journey-list-right">
             <span class="journey-list-score" style="color:#cc3333;">20</span>
-            <span class="journey-list-meta">2 reviews</span>
+            <span class="journey-list-meta">1 review &middot; 1d sustained</span>
             <span class="journey-list-status" style="color:#CC0000;">&#8600; REGRESSION</span>
           </span>
         </div>
-<div style="height:104px;border:1px solid #003A5C;border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:#001E2E;overflow:hidden;"><div style="font-size:10px;color:#3A6A7F;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">App Crashing</div><div style="font-size:12px;color:#B8D4E0;font-style:italic;line-height:1.5;overflow:hidden;">&ldquo;Update as for April 2026: The app keep crashing when try to view the &quot;Your Card&quot; details.&rdquo;</div><div style="font-size:11px;color:#4A7A8F;margin-top:6px;letter-spacing:0.03em;white-space:nowrap;">★★☆☆☆ &middot; Google Play &middot; 17 Apr</div></div>      <div class="box2-legend">
+<div style="height:104px;border:1px solid #003A5C;border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:#001E2E;overflow:hidden;"><div style="font-size:10px;color:#3A6A7F;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Account Locked</div><div style="font-size:12px;color:#B8D4E0;font-style:italic;line-height:1.5;overflow:hidden;">&ldquo;Barclays Bank without information and resin blocking accounts without investigation that is so sad&rdquo;</div><div style="font-size:11px;color:#4A7A8F;margin-top:6px;letter-spacing:0.03em;white-space:nowrap;">★☆☆☆☆ &middot; App Store &middot; 16 Apr</div></div>      <div class="box2-legend">
         <span class="box2-legend-item"><span class="box2-legend-label" style="color:var(--red);">REGRESSION</span> <span class="box2-legend-def">P0 present or worsening P1s</span></span>
         <span class="box2-legend-item"><span class="box2-legend-label" style="color:var(--amber);">WATCH</span> <span class="box2-legend-def">P1 present or trend worsening</span></span>
         <span class="box2-legend-item"><span class="box2-legend-label" style="color:var(--teal);">PERFORMING WELL</span> <span class="box2-legend-def">no severe signal</span></span>
@@ -477,13 +478,13 @@ a { color: var(--blue); text-decoration: none; }
 <div style="padding:10px 12px;background:#04131D;border:1px solid #003A5C;
             border-left:3px solid #F5A623;border-radius:3px;margin-bottom:14px;
             font-size:12px;color:#E8F4FA;line-height:1.55;">
-  <div><strong style="color:#FFD580;">App Crashing</strong> is this week's priority — P0 severity, sustained 15d without inflection, cited in 6 of 214 Barclays reviews.</div>
+  <div><strong style="color:#FFD580;">App Crashing</strong> is this week's priority — P0 severity, sustained 15d, cited in 6 of 198 Barclays reviews.</div>
   <div style="color:#7AACBF;font-size:11px;margin-top:4px;">Volume is low by design: P0 failures are rare until they aren't.</div>
 </div>
     
 <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
   <div style="flex:1 1 140px;min-width:140px;padding:12px 14px;background:#001828;border:1px solid #003A5C;border-radius:4px;">
-    <div style="font-family:'DM Mono',monospace;font-size:24px;font-weight:700;line-height:1;margin-bottom:6px;letter-spacing:0.5px;color:#00AFA0;">&darr; 40%</div>
+    <div style="font-family:'DM Mono',monospace;font-size:24px;font-weight:700;line-height:1;margin-bottom:6px;letter-spacing:0.5px;color:#00AFA0;">&darr; 33%</div>
     <div style="font-size:9px;color:#7AACBF;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:4px;font-weight:600;">WoW volume</div>
     <div style="font-size:10px;color:#4A7A8F;font-family:'DM Mono',monospace;">6 reviews this week</div>
   </div>
@@ -505,7 +506,7 @@ a { color: var(--blue); text-decoration: none; }
 <div style="margin-bottom:14px;">
   <div style="font-size:9px;color:#3A6A7F;text-transform:uppercase;
               letter-spacing:1px;margin-bottom:5px;">The Situation</div>
-  <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Persistent app crashes blocking card access and OTP delivery expose Barclays to FCA duty-of-care scrutiny under Consumer Duty. Customers report card controls and PIN retrieval failing outright, with Barclays' crash rate running 2.15x the peer average. Ship a targeted hotfix for card-navigation and OTP session flows within 72 hours, before this mirrors HSBC's 2025 post-refresh incident where a three-week delay drew regulatory attention.</div>
+  <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Persistent crash rates at 2.15x the peer average expose Barclays to FCA duty-of-care scrutiny over denied card access. Customers report cache clears failing to restore PIN retrieval and OTP delivery, blocking account setup entirely. Assign a P0 hotfix team today, targeting a patch within 72 hours before this mirrors HSBC's 2025 post-refresh incident.</div>
 </div>
     
 <div style="font-size:11px;color:#4A7A8F;font-style:italic;
@@ -515,7 +516,7 @@ a { color: var(--blue); text-decoration: none; }
 <div style="margin-bottom:14px;border-top:1px solid #003A5C;padding-top:14px;">
   <div style="font-size:9px;color:#3A6A7F;text-transform:uppercase;
               letter-spacing:1px;margin-bottom:5px;">Peer Comparison</div>
-  <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Barclays ranks 6th of 6 on App Crashing. Best in the cohort is NatWest at 2.9%. On Login Failed, Barclays leads the cohort — 3.8pp below average.</div>
+  <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Barclays ranks 6th of 6 on App Crashing. Best in the cohort is NatWest at 2.9%. On Login Failed, Barclays leads the cohort — 3.7pp below average.</div>
 </div>
     <div style="margin-top:14px;border-top:1px solid #003A5C;padding-top:14px;">
       <span style="display:inline-block;padding:8px 14px;border-radius:4px;
@@ -539,7 +540,7 @@ a { color: var(--blue); text-decoration: none; }
 </div>
 
 <!-- -- Journey Sentiment Row ----------------------------------------------- -->
-<div class="journey-row-header"><span class="journey-row-title">TOP 5 AFFECTED JOURNEYS</span><span class="journey-row-sub">last 7 days &middot; 3 of 8 with signal</span><span class="journey-row-legend"><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--red);">ACUTE</span> <span class="journey-legend-def">severe + new/worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:#B85450;">PERSISTENT</span> <span class="journey-legend-def">severe &ge; 7d, stable</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--amber);">DRIFT</span> <span class="journey-legend-def">no severe, trend worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--green);">STABLE</span> <span class="journey-legend-def">quiet</span></span><span class="journey-legend-item journey-legend-metric"><span class="journey-legend-def">severe day = &ge;1 P0/P1 review, last 30d</span></span></span></div><div class="journey-row"><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Log In to Account</div><div class="journey-cell-score" style="color:#cc3333;">48</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">5 reviews &middot; 13 severe days</div></div><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Make a Payment</div><div class="journey-cell-score" style="color:#E8F4FA;">60</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">7 reviews &middot; 13 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Manage Card</div><div class="journey-cell-score" style="color:#cc3333;">38</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--red);">ACUTE</span></div><div class="journey-cell-submeta">8 reviews &middot; 6 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--green);"><div class="journey-cell-name">Get Support</div><div class="journey-cell-score" style="color:#E8F4FA;">84</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--green);">↗</span><span class="journey-status-label" style="color:var(--green);">STABLE</span></div><div class="journey-cell-submeta">14 reviews &middot; 1 severe day</div></div><div class="journey-cell" style="border-top:3px solid var(--green);"><div class="journey-cell-name">Check Balance or Statement</div><div class="journey-cell-score" style="color:#E8F4FA;">76</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--green);">STABLE</span></div><div class="journey-cell-submeta">9 reviews &middot; 1 severe day</div></div></div>
+<div class="journey-row-header"><span class="journey-row-title">TOP 5 AFFECTED JOURNEYS</span><span class="journey-row-sub">last 7 days &middot; 3 of 8 with signal</span><span class="journey-row-legend"><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--red);">ACUTE</span> <span class="journey-legend-def">severe + new/worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:#B85450;">PERSISTENT</span> <span class="journey-legend-def">severe &ge; 7d, stable</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--amber);">DRIFT</span> <span class="journey-legend-def">no severe, trend worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--green);">STABLE</span> <span class="journey-legend-def">quiet</span></span><span class="journey-legend-item journey-legend-metric"><span class="journey-legend-def">severe day = &ge;1 P0/P1 review, last 30d</span></span></span></div><div class="journey-row"><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Log In to Account</div><div class="journey-cell-score" style="color:#cc3333;">40</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span><span class="journey-cell-lowvol">low-volume</span></div><div class="journey-cell-submeta">3 reviews &middot; 12 severe days</div></div><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Make a Payment</div><div class="journey-cell-score" style="color:#E8F4FA;">60</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">5 reviews &middot; 13 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Manage Card</div><div class="journey-cell-score" style="color:#cc3333;">43</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--red);">ACUTE</span></div><div class="journey-cell-submeta">6 reviews &middot; 6 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--green);"><div class="journey-cell-name">Get Support</div><div class="journey-cell-score" style="color:#E8F4FA;">93</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--green);">↗</span><span class="journey-status-label" style="color:var(--green);">STABLE</span></div><div class="journey-cell-submeta">11 reviews &middot; 1 severe day</div></div><div class="journey-cell" style="border-top:3px solid var(--green);"><div class="journey-cell-name">Check Balance or Statement</div><div class="journey-cell-score" style="color:#E8F4FA;">71</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--green);">STABLE</span></div><div class="journey-cell-submeta">7 reviews &middot; 1 severe day</div></div></div>
 
 <!-- -- Body: Left + Right Columns ------------------------------------------ -->
 <div class="body-wrapper">
@@ -554,17 +555,17 @@ a { color: var(--blue); text-decoration: none; }
   </div>
   <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
   <div class="verdict-label">VERDICT</div>
-  <div class="verdict-text">Feature Broken -- 22 signals, minor issues only.</div>
+  <div class="verdict-text">Feature Broken -- 18 signals, minor issues only.</div>
   <div class="version-delta-row">
     <span class="version-label">v—</span>
     <code class="version-delta" style="color:#6b7088;">— no baseline</code>
   </div>
   <div class="signal-counts">
     <span class="sig-count sig-p1">P1: 0</span>
-    <span class="sig-count sig-p2">P2: 22</span>
+    <span class="sig-count sig-p2">P2: 18</span>
   </div>
   
-  <div class="market-note">Market signal analysis — public app store data - 2.65 avg rating</div>
+  <div class="market-note">Market signal analysis — public app store data - 2.70 avg rating</div>
 </div>
 
 <div class="journey-card" style="border-left:3px solid var(--amber);">
@@ -623,28 +624,28 @@ a { color: var(--blue); text-decoration: none; }
     <code class="version-delta" style="color:#6b7088;">— no baseline</code>
   </div>
   <div class="signal-counts">
-    <span class="sig-count sig-p1">P1: 3</span>
+    <span class="sig-count sig-p1">P1: 2</span>
     <span class="sig-count sig-p2">P2: 0</span>
   </div>
   
-  <div class="market-note">Market signal analysis — public app store data - 2.35 avg rating</div>
+  <div class="market-note">Market signal analysis — public app store data - 2.00 avg rating</div>
 </div>
 
 <div class="journey-card" style="border-left:3px solid var(--red);">
   <div class="card-header">
     <span class="rank-num">#5</span>
-    <span class="journey-name">Login Failed</span>
+    <span class="journey-name">Account Locked</span>
     <span class="badge" style="color:var(--red);background:#2a0a0a;">REGRESSION</span>
   </div>
   <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
   <div class="verdict-label">VERDICT</div>
-  <div class="verdict-text">Login Failed -- 1 complete-block signals, volume stable.</div>
+  <div class="verdict-text">Account Locked -- 1 complete-block signals, volume stable.</div>
   <div class="version-delta-row">
     <span class="version-label">v—</span>
     <code class="version-delta" style="color:#6b7088;">— no baseline</code>
   </div>
   <div class="signal-counts">
-    <span class="sig-count sig-p1">P1: 2</span>
+    <span class="sig-count sig-p1">P1: 1</span>
     <span class="sig-count sig-p2">P2: 0</span>
   </div>
   
@@ -747,7 +748,7 @@ a { color: var(--blue); text-decoration: none; }
   <span class="footer-sep">-</span>
   <span class="footer-item">Article Zero</span>
   <span class="footer-sep">-</span>
-  <span class="footer-item">Published 2026-04-21 20:23 UTC</span>
+  <span class="footer-item">Published 2026-04-22 06:52 UTC</span>
 </div>
 
 <!-- -- Ask Sonar Button ----------------------------------------------------- -->
@@ -758,75 +759,34 @@ a { color: var(--blue); text-decoration: none; }
   Ask CJI Pro
 </button>
 
-<!-- -- Chat Panel ----------------------------------------------------------- -->
+<!-- -- Chat Panel (iframe → sonar.cjipro.com, the canonical UI) ------------ -->
 <div class="chat-panel" id="chatPanel">
   <div class="chat-header">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e8a030" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
     <span class="chat-title">Ask CJI Pro</span>
+    <a href="https://sonar.cjipro.com/" target="_blank" rel="noopener" style="color:var(--text-3);text-decoration:none;font-size:11px;margin-right:8px" title="Open in new tab">↗</a>
     <button class="chat-close" onclick="closeChat()">&#215;</button>
   </div>
-  <div class="chat-messages" id="chatMessages">
-    <div class="chat-msg system">Sonar is ready. Ask about any competitor journey, signal pattern, or CHRONICLE match.</div>
-  </div>
-  <div class="chat-chips">
-    <span class="chip" onclick="sendChip(this)">What is Barclays login score?</span>
-    <span class="chip" onclick="sendChip(this)">Any active P0 signals?</span>
-    <span class="chip" onclick="sendChip(this)">CHRONICLE match for Lloyds?</span>
-    <span class="chip" onclick="sendChip(this)">Which journey is regressing?</span>
-  </div>
-  <div class="chat-input-row">
-    <input type="text" class="chat-input" id="chatInput" placeholder="Ask about market signals…" onkeydown="if(event.key==='Enter')sendChat()">
-    <button class="chat-send" onclick="sendChat()">Send</button>
-  </div>
+  <iframe id="chatFrame" class="chat-iframe" title="Ask CJI Pro" loading="lazy" src="about:blank"></iframe>
 </div>
 
 <script>
-// -- Chat Panel ------------------------------------------------------------
-const PROXY_URL = 'https://sonar.cjipro.com/api/ask';
+// -- Chat Panel (iframe-backed) ---------------------------------------------
+// The chat UI lives at https://sonar.cjipro.com/ and is served by the same
+// backend the briefing calls. The iframe lazy-loads on first open so the
+// briefing page itself stays snappy.
+const CHAT_URL = 'https://sonar.cjipro.com/';
 
 function openChat() {
-  document.getElementById('chatPanel').classList.add('open');
+  const panel = document.getElementById('chatPanel');
+  const frame = document.getElementById('chatFrame');
+  if (frame.src === 'about:blank' || !frame.src.startsWith(CHAT_URL)) {
+    frame.src = CHAT_URL;
+  }
+  panel.classList.add('open');
 }
 function closeChat() {
   document.getElementById('chatPanel').classList.remove('open');
-}
-function sendChip(el) {
-  document.getElementById('chatInput').value = el.textContent;
-  sendChat();
-}
-async function sendChat() {
-  const input = document.getElementById('chatInput');
-  const messages = document.getElementById('chatMessages');
-  const text = input.value.trim();
-  if (!text) return;
-  input.value = '';
-
-  // User message
-  const userMsg = document.createElement('div');
-  userMsg.className = 'chat-msg user';
-  userMsg.textContent = text;
-  messages.appendChild(userMsg);
-  messages.scrollTop = messages.scrollHeight;
-
-  // Send to proxy
-  try {
-    const res = await fetch(PROXY_URL, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({query: text, version: '8.20.1'})
-    });
-    const data = await res.json();
-    const reply = document.createElement('div');
-    reply.className = 'chat-msg system';
-    reply.textContent = data.response || 'No response from Sonar.';
-    messages.appendChild(reply);
-  } catch (err) {
-    const errMsg = document.createElement('div');
-    errMsg.className = 'chat-msg error';
-    errMsg.textContent = 'Proxy unavailable — sonar.cjipro.com/api/ask not reachable.';
-    messages.appendChild(errMsg);
-  }
-  messages.scrollTop = messages.scrollHeight;
 }
 
 // Close on outside click
@@ -957,7 +917,7 @@ document.addEventListener('click', function(e) {
 <hr class="v3-divider">
 <div class="v3-outer">
   <div class="v3-label">
-    Sonar V3 &nbsp;&middot;&nbsp; Intelligence Layer &nbsp;&middot;&nbsp; 2026-04-21 20:23 UTC
+    Sonar V3 &nbsp;&middot;&nbsp; Intelligence Layer &nbsp;&middot;&nbsp; 2026-04-22 06:53 UTC
   </div>
   
 <div class="topbar-box">
@@ -968,7 +928,7 @@ document.addEventListener('click', function(e) {
   <div class="topbar-box-body">
     <div class="churn-header">
       <div class="churn-score-block">
-        <div class="churn-score-num" style="color:#F5A623;">50.8</div>
+        <div class="churn-score-num" style="color:#F5A623;">50.7</div>
         <div class="churn-score-lbl">Churn Risk Score</div>
       </div>
       <div class="churn-trend-block">
@@ -991,7 +951,7 @@ document.addEventListener('click', function(e) {
   <div style="font-size:9px;color:#3A6A7F;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">
     Competitive Strengths — Barclays under-indexed vs peers
   </div>
-  <div class="churn-over-list"><span class="churn-issue-pill strength">Login Failed -3.8pp</span><span class="churn-issue-pill strength">Slow Performance -3.1pp</span><span class="churn-issue-pill strength">App Not Opening -2.8pp</span></div>
+  <div class="churn-over-list"><span class="churn-issue-pill strength">Login Failed -3.7pp</span><span class="churn-issue-pill strength">Slow Performance -3.1pp</span><span class="churn-issue-pill strength">App Not Opening -2.8pp</span></div>
 </div>
   </div>
 </div>
@@ -1024,7 +984,7 @@ document.addEventListener('click', function(e) {
   <div class="commentary-stat">Active <span>15 days</span></div>
   <div class="commentary-stat">Since <span>2026-04-03</span></div>
 </div>
-  <div class="commentary-prose">Persistent app crashes blocking card access and OTP delivery expose Barclays to FCA duty-of-care scrutiny under Consumer Duty. Customers report card controls and PIN retrieval failing outright, with Barclays' crash rate running 2.15x the peer average. Ship a targeted hotfix for card-navigation and OTP session flows within 72 hours, before this mirrors HSBC's 2025 post-refresh incident where a three-week delay drew regulatory attention.</div>
+  <div class="commentary-prose">Persistent crash rates at 2.15x the peer average expose Barclays to FCA duty-of-care scrutiny over denied card access. Customers report cache clears failing to restore PIN retrieval and OTP delivery, blocking account setup entirely. Assign a P0 hotfix team today, targeting a patch within 72 hours before this mirrors HSBC's 2025 post-refresh incident.</div>
   <div class="commentary-quote">&ldquo;Dreadful. Can't access cards on it, each time I do it keeps crashing and clearing cache does nothing so I can't check my pin numbers or anything in relation to my card nor barclaycard.&rdquo;</div>
   <div class="commentary-chr">Chronicle context: HSBC 2025: post-refresh crashes and ERR03 errors ran three weeks before a fix....</div>
 </div>
@@ -1044,7 +1004,7 @@ document.addEventListener('click', function(e) {
   <div class="commentary-stat">Active <span>15 days</span></div>
   <div class="commentary-stat">Since <span>2026-04-03</span></div>
 </div>
-  <div class="commentary-prose">Broken self-service features—mortgage direct debits and notification failures—expose Barclays to FCA duty-of-care scrutiny over inadequate digital access. Customers report inability to cancel direct debits or update personal details, with Barclays complaints running 4.5 percentage points above the six-peer average. Prioritise a targeted fix for direct debit and notification workflows within five business days before regulators treat the streak as evidence of systemic neglect.</div>
+  <div class="commentary-prose">Broken self-service features — mortgage direct debits, notifications, and personal detail updates — expose Barclays to FCA duty-of-care scrutiny over inadequate digital service availability. Customers report being unable to cancel direct debits or update account details, with Barclays complaints running 4.5 percentage points above the six-peer average. Escalate a targeted fix for direct debit and notification failures to engineering this week, before regulators log the streak as evidence of neglect.</div>
   <div class="commentary-quote">&ldquo;You cant change your mortgage direct debits in any way on here - useless!&rdquo;</div>
   
 </div>
@@ -1064,7 +1024,7 @@ document.addEventListener('click', function(e) {
   <div class="commentary-stat">Active <span>15 days</span></div>
   <div class="commentary-stat">Since <span>2026-04-03</span></div>
 </div>
-  <div class="commentary-prose">Persistent payment failures on the Barclays app expose the bank to duty-of-care scrutiny from the FCA. Customers report app closures mid-authorisation and PIN-entry failures blocking transactions, with Barclays' complaint rate running 0.7 points above peers. Deploy a targeted payment-flow hotfix by Friday and brief the FCA proactively before regulators raise it first.</div>
+  <div class="commentary-prose">Repeated payment-authorisation failures on the Barclays app create direct FCA duty-of-care liability for inaccessible regulated services. Customers report the app closing mid-authorisation and PIN entry failing, with Barclays' complaint rate running 0.7 percentage points above the peer average. Escalate this to a P0 hotfix deployment by Friday, targeting the authorisation redirect and PIN session flow specifically.</div>
   <div class="commentary-quote">&ldquo;Terrible app sends me to authorise payments to my bank then app closes and doesn't take payment.&rdquo;</div>
   
 </div>
@@ -1079,12 +1039,12 @@ document.addEventListener('click', function(e) {
   
 <div class="commentary-stats">
   <div class="commentary-stat">Barclays rate <span>3.7%</span></div>
-  <div class="commentary-stat">Peer avg <span>7.5%</span></div>
-  <div class="commentary-stat">Gap <span style="color:#00AFA0;">-3.8pp</span></div>
+  <div class="commentary-stat">Peer avg <span>7.4%</span></div>
+  <div class="commentary-stat">Gap <span style="color:#00AFA0;">-3.7pp</span></div>
   
   
 </div>
-  <div class="commentary-prose">Barclays delivers markedly fewer login failures than rivals, giving customers frictionless access to their accounts on first attempt. Users who authenticate without friction are significantly less likely to abandon a session or seek a competitor app that "just works."</div>
+  <div class="commentary-prose">Barclays delivers a significantly more reliable login experience than peers, with fewer customers hitting authentication failures during critical access moments. Users who log in without friction are demonstrably less likely to abandon sessions, seek competitor accounts, or escalate to costly contact-centre calls.</div>
   <div class="commentary-quote">&ldquo;Absolute dross of an application. Updated it and needed a card reader just to log in again which took ages to arrive and therefore missed payment which will affect my credit because of some stupid developer.&rdquo;</div>
   
 </div>
@@ -1099,7 +1059,7 @@ document.addEventListener('click', function(e) {
   </div>
   <div class="topbar-box-body">
     <div style="margin-bottom:12px;font-size:10px;color:#3A6A7F;">
-      Peer avg rates: <span style="font-size:10px;color:#F5A623;margin-right:10px;">NatWest: 4.6%</span><span style="font-size:10px;color:#00AFA0;margin-right:10px;">Lloyds: 6.0%</span><span style="font-size:10px;color:#CC3300;margin-right:10px;">HSBC: 6.2%</span><span style="font-size:10px;color:#7B5EA7;margin-right:10px;">Monzo: 7.9%</span><span style="font-size:10px;color:#4A9BD4;margin-right:10px;">Revolut: 6.3%</span>
+      Peer avg rates: <span style="font-size:10px;color:#F5A623;margin-right:10px;">NatWest: 4.6%</span><span style="font-size:10px;color:#00AFA0;margin-right:10px;">Lloyds: 5.9%</span><span style="font-size:10px;color:#CC3300;margin-right:10px;">HSBC: 6.2%</span><span style="font-size:10px;color:#7B5EA7;margin-right:10px;">Monzo: 7.9%</span><span style="font-size:10px;color:#4A9BD4;margin-right:10px;">Revolut: 6.3%</span>
     </div>
     <table class="bench-table">
       <thead>
@@ -1128,9 +1088,9 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Peer avg</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:74%;background:#3A6A7F;"></div>
+          <div class="bench-bar-fill" style="width:75%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">1.6%</span>
+        <span class="bench-bar-pct">1.7%</span>
       </div>
     </div>
   </td>
@@ -1244,7 +1204,7 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Barclays</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:49%;background:#00AEEF;"></div>
+          <div class="bench-bar-fill" style="width:50%;background:#00AEEF;"></div>
         </div>
         <span class="bench-bar-pct" style="color:#00AEEF;">3.7%</span>
       </div>
@@ -1255,11 +1215,11 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">7.5%</span>
+        <span class="bench-bar-pct">7.4%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-negative">-3.8pp</td>
+  <td class="bench-gap-cell bench-gap-negative">-3.7pp</td>
   <div class="bench-days-cell"></div>
 </tr>
 <tr class="bench-issue-row">
@@ -1494,7 +1454,7 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Barclays</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:78%;background:#00AEEF;"></div>
+          <div class="bench-bar-fill" style="width:77%;background:#00AEEF;"></div>
         </div>
         <span class="bench-bar-pct" style="color:#00AEEF;">1.9%</span>
       </div>
