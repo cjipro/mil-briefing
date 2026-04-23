@@ -5,12 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CJI Pro — Customer Journey Intelligence</title>
 
+<!-- Security / trust headers (meta-equivalent) -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
+
 <!-- Primary meta (classification + SEO signals) -->
 <meta name="description" content="Customer journey intelligence platform for regulated consumer-service brands. Daily market-research briefing and internal journey analytics with verbatim voice-of-customer evidence. Starting with UK banking.">
 <meta name="keywords" content="customer journey intelligence, voice of the customer, market research, consumer research, customer experience analytics, journey analytics, regulated consumer services, banking insight">
 <meta name="robots" content="index, follow">
 <meta name="author" content="CJI Pro">
 <link rel="canonical" href="https://cjipro.com/">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="privacy-policy" href="/privacy/">
 
 <!-- Open Graph (social + classifier hints) -->
 <meta property="og:type" content="website">
@@ -47,7 +55,43 @@
   "areaServed": {
     "@type": "Country",
     "name": "United Kingdom"
-  }
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "hello@cjipro.com",
+      "availableLanguage": "English",
+      "areaServed": "GB"
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "security",
+      "email": "security@cjipro.com",
+      "availableLanguage": "English"
+    }
+  ],
+  "sameAs": []
+}
+</script>
+
+<!-- Secondary JSON-LD: site-as-publication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CJI Pro",
+  "url": "https://cjipro.com",
+  "inLanguage": "en-GB",
+  "publisher": {
+    "@type": "Organization",
+    "name": "CJI Pro"
+  },
+  "about": [
+    "Customer journey intelligence",
+    "Voice of the customer research",
+    "Competitive market research"
+  ]
 }
 </script>
 
