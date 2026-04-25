@@ -478,25 +478,45 @@ a { color: var(--blue); text-decoration: none; }
 <div style="padding:10px 12px;background:#04131D;border:1px solid #003A5C;
             border-left:3px solid #F5A623;border-radius:3px;margin-bottom:14px;
             font-size:12px;color:#E8F4FA;line-height:1.55;">
-  <div><strong style="color:#FFD580;">Account Locked</strong> is this week's priority — P0 severity, regressing, signal active in the benchmark corpus.</div>
-  <div style="color:#7AACBF;font-size:11px;margin-top:4px;">Volume is low by design: P0 failures are rare until they aren't.</div>
+  <div><strong style="color:#FFD580;">Card Frozen or Blocked</strong> is this week's priority — P2 severity, active and drifting up, cited in 2 of 221 Barclays reviews.</div>
+  <div style="color:#7AACBF;font-size:11px;margin-top:4px;">Peers average 0.8%; Barclays is at 1.7% — a +0.9pp gap.</div>
 </div>
     
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+  <div style="flex:1 1 140px;min-width:140px;padding:12px 14px;background:#001828;border:1px solid #003A5C;border-radius:4px;">
+    <div style="font-family:'DM Mono',monospace;font-size:24px;font-weight:700;line-height:1;margin-bottom:6px;letter-spacing:0.5px;color:#CC0000;">&uarr; 100%</div>
+    <div style="font-size:9px;color:#7AACBF;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:4px;font-weight:600;">WoW volume</div>
+    <div style="font-size:10px;color:#4A7A8F;font-family:'DM Mono',monospace;">2 reviews this week</div>
+  </div>
+  <div style="flex:1 1 140px;min-width:140px;padding:12px 14px;background:#001828;border:1px solid #003A5C;border-radius:4px;">
+    <div style="font-family:'DM Mono',monospace;font-size:24px;font-weight:700;line-height:1;margin-bottom:6px;letter-spacing:0.5px;color:#F5A623;">+0.9pp</div>
+    <div style="font-size:9px;color:#7AACBF;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:4px;font-weight:600;">vs peer avg</div>
+    <div style="font-size:10px;color:#4A7A8F;font-family:'DM Mono',monospace;">1.7% vs 0.8%</div>
+  </div>
+  <div style="flex:1 1 140px;min-width:140px;padding:12px 14px;background:#001828;border:1px solid #003A5C;border-radius:4px;">
+    <div style="font-family:'DM Mono',monospace;font-size:24px;font-weight:700;line-height:1;margin-bottom:6px;letter-spacing:0.5px;color:#7AACBF;">1d</div>
+    <div style="font-size:9px;color:#7AACBF;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:4px;font-weight:600;">sustained</div>
+    <div style="font-size:10px;color:#4A7A8F;font-family:'DM Mono',monospace;">since 2026-04-24</div>
+  </div>
+</div>
+<div style="font-size:9px;color:#3A6A7F;font-style:italic;margin-bottom:14px;">
+  Public reviews are surface signal. True customer impact is typically orders of magnitude larger.
+</div>
     
 <div style="margin-bottom:14px;">
   <div style="font-size:9px;color:#3A6A7F;text-transform:uppercase;
               letter-spacing:1px;margin-bottom:5px;">The Situation</div>
-  <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Repeated forced re-registration failures put Barclays at risk of FCA duty-of-care scrutiny over denied account access. Customers report losing device authentication entirely, with Barclays' lockout rate running 0.5 percentage points above peers — echoing TSB's 2018 migration-driven mass lockout. Push an authentication session-fix to production by end of week before this becomes a regulator's case study.</div>
+  <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Persistent Android crashes blocking card access and OTP retrieval put Barclays at duty-of-care risk under FCA Consumer Duty rules. Customers cannot retrieve PIN numbers or complete account setup, with Barclays crash rates running 1.9x above the peer average. Ship an emergency hotfix by 28 April before this incident replicates HSBC's 2025 post-refresh three-week delay and attracts regulatory scrutiny.</div>
 </div>
     
 <div style="font-size:11px;color:#4A7A8F;font-style:italic;
             border-left:2px solid #003A5C;padding-left:10px;
-            margin:10px 0 14px;">&ldquo;Constantly getting logged out and having to reregister using ID on my devices. I will be closing my accounts as soon as I am able to as it is too much hassle compared with other banking apps like NatWest.&rdquo;</div>
+            margin:10px 0 14px;">&ldquo;Dreadful. Can't access cards on it, each time I do it keeps crashing and clearing cache does nothing so I can't check my pin numbers or anything in relation to my card nor barclaycard.&rdquo;</div>
     
 <div style="margin-bottom:14px;border-top:1px solid #003A5C;padding-top:14px;">
   <div style="font-size:9px;color:#3A6A7F;text-transform:uppercase;
               letter-spacing:1px;margin-bottom:5px;">Peer Comparison</div>
-  <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Barclays ranks 3rd of 6 on Account Locked. Best in the cohort is HSBC at 0.8%. On Login Failed, Barclays leads the cohort — 3.0pp below average.</div>
+  <div style="font-size:12px;color:#C5DDE8;line-height:1.65;">Barclays ranks 4th of 6 on Card Frozen or Blocked. Best in the cohort is HSBC at 0.0%. On Slow Performance, Barclays leads the cohort — 3.1pp below average.</div>
 </div>
     <div style="margin-top:14px;border-top:1px solid #003A5C;padding-top:14px;">
       <span style="display:inline-block;padding:8px 14px;border-radius:4px;
@@ -897,7 +917,7 @@ document.addEventListener('click', function(e) {
 <hr class="v3-divider">
 <div class="v3-outer">
   <div class="v3-label">
-    Sonar V3 &nbsp;&middot;&nbsp; Intelligence Layer &nbsp;&middot;&nbsp; 2026-04-24 06:43 UTC
+    Sonar V3 &nbsp;&middot;&nbsp; Intelligence Layer &nbsp;&middot;&nbsp; 2026-04-25 21:31 UTC
   </div>
   
 <div class="topbar-box">
@@ -908,11 +928,11 @@ document.addEventListener('click', function(e) {
   <div class="topbar-box-body">
     <div class="churn-header">
       <div class="churn-score-block">
-        <div class="churn-score-num" style="color:#00AFA0;">19.0</div>
+        <div class="churn-score-num" style="color:#00AFA0;">18.4</div>
         <div class="churn-score-lbl">Churn Risk Score</div>
       </div>
       <div class="churn-trend-block">
-        <span class="churn-trend-badge" style="background:#2A0808;color:#CC0000;border:1px solid #CC0000;">WORSENING</span>
+        <span class="churn-trend-badge" style="background:#001810;color:#00AFA0;border:1px solid #00AFA0;">IMPROVING</span>
         <div class="churn-meta">
           7 issue types over-indexed &nbsp;&middot;&nbsp;
           7 under-indexed
@@ -924,14 +944,14 @@ document.addEventListener('click', function(e) {
   <div style="font-size:9px;color:#3A6A7F;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">
     Risk Signals — Barclays over-indexed vs peers
   </div>
-  <div class="churn-over-list"><span class="churn-issue-pill">App Crashing +6.4pp</span><span class="churn-issue-pill">Feature Broken +4.8pp</span><span class="churn-issue-pill">Account Locked +0.5pp</span><span class="churn-issue-pill">Incorrect Balance +1.1pp</span><span class="churn-issue-pill">Card Frozen or Blocked +0.9pp</span></div>
+  <div class="churn-over-list"><span class="churn-issue-pill">App Crashing +5.9pp</span><span class="churn-issue-pill">Feature Broken +5.0pp</span><span class="churn-issue-pill">Account Locked +0.5pp</span><span class="churn-issue-pill">Payment Failed +0.4pp</span><span class="churn-issue-pill">Incorrect Balance +1.0pp</span></div>
 </div>
     
 <div style="margin-top:10px;">
   <div style="font-size:9px;color:#3A6A7F;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">
     Competitive Strengths — Barclays under-indexed vs peers
   </div>
-  <div class="churn-over-list"><span class="churn-issue-pill strength">Login Failed -3.0pp</span><span class="churn-issue-pill strength">Slow Performance -2.7pp</span><span class="churn-issue-pill strength">Customer Support Failure -2.3pp</span></div>
+  <div class="churn-over-list"><span class="churn-issue-pill strength">Slow Performance -3.1pp</span><span class="churn-issue-pill strength">Login Failed -2.8pp</span><span class="churn-issue-pill strength">Customer Support Failure -2.4pp</span></div>
 </div>
   </div>
 </div>
@@ -942,7 +962,7 @@ document.addEventListener('click', function(e) {
     <span style="font-size:10px;color:#3A6A7F;">
       Sonnet inference per issue type &nbsp;&middot;&nbsp;
       3 risk &nbsp;&middot;&nbsp;
-      0 strength
+      1 strength
     </span>
   </div>
   <div class="topbar-box-body">
@@ -959,12 +979,12 @@ document.addEventListener('click', function(e) {
   
 <div class="commentary-stats">
   <div class="commentary-stat">Barclays rate <span>12.4%</span></div>
-  <div class="commentary-stat">Peer avg <span>6.0%</span></div>
-  <div class="commentary-stat">Gap <span style="color:#CC3333;">+6.4pp</span></div>
+  <div class="commentary-stat">Peer avg <span>6.5%</span></div>
+  <div class="commentary-stat">Gap <span style="color:#CC3333;">+5.9pp</span></div>
   <div class="commentary-stat">Active <span>1 days</span></div>
   <div class="commentary-stat">Since <span>2026-04-24</span></div>
 </div>
-  <div class="commentary-prose">Persistent Android crashes blocking card access and OTP retrieval expose Barclays to duty-of-care scrutiny at 2.1x the peer complaint rate. Customers report cache clears failing to restore PIN visibility or card controls, leaving some unable to complete account setup entirely. Ship an Android hotfix by end of week; HSBC's 2025 post-refresh incident shows three weeks' delay turns a P0 bug into a regulator's exhibit.</div>
+  <div class="commentary-prose">Persistent Android crashes blocking card access and OTP retrieval put Barclays at duty-of-care risk under FCA Consumer Duty rules. Customers cannot retrieve PIN numbers or complete account setup, with Barclays crash rates running 1.9x above the peer average. Ship an emergency hotfix by 28 April before this incident replicates HSBC's 2025 post-refresh three-week delay and attracts regulatory scrutiny.</div>
   <div class="commentary-quote">&ldquo;Dreadful. Can't access cards on it, each time I do it keeps crashing and clearing cache does nothing so I can't check my pin numbers or anything in relation to my card nor barclaycard.&rdquo;</div>
   <div class="commentary-chr">Chronicle context: HSBC 2025: post-refresh crashes and ERR03 errors ran three weeks before a fix....</div>
 </div>
@@ -978,13 +998,13 @@ document.addEventListener('click', function(e) {
   </div>
   
 <div class="commentary-stats">
-  <div class="commentary-stat">Barclays rate <span>2.1%</span></div>
+  <div class="commentary-stat">Barclays rate <span>2.0%</span></div>
   <div class="commentary-stat">Peer avg <span>1.6%</span></div>
   <div class="commentary-stat">Gap <span style="color:#CC3333;">+0.5pp</span></div>
   <div class="commentary-stat">Active <span>1 days</span></div>
   <div class="commentary-stat">Since <span>2026-04-24</span></div>
 </div>
-  <div class="commentary-prose">Repeated forced re-registration failures put Barclays at risk of FCA duty-of-care scrutiny over denied account access. Customers report losing device authentication entirely, with Barclays' lockout rate running 0.5 percentage points above peers — echoing TSB's 2018 migration-driven mass lockout. Push an authentication session-fix to production by end of week before this becomes a regulator's case study.</div>
+  <div class="commentary-prose">Forced re-registration loops on Barclays expose the bank to duty-of-care scrutiny, mirroring TSB's 2018 lockout failure. Customers report being ejected mid-session and forced to re-verify ID, with Barclays' account-locked complaint rate running 0.5 percentage points above peers. Escalate this to P0 engineering triage by end of week before re-registration failures drive measurable current-account closures.</div>
   <div class="commentary-quote">&ldquo;Constantly getting logged out and having to reregister using ID on my devices. I will be closing my accounts as soon as I am able to as it is too much hassle compared with other banking apps like NatWest.&rdquo;</div>
   <div class="commentary-chr">Chronicle context: TSB 2018: mass account lockout was the defining customer impact of the migration failure....</div>
 </div>
@@ -999,13 +1019,33 @@ document.addEventListener('click', function(e) {
   
 <div class="commentary-stats">
   <div class="commentary-stat">Barclays rate <span>5.3%</span></div>
-  <div class="commentary-stat">Peer avg <span>5.1%</span></div>
-  <div class="commentary-stat">Gap <span style="color:#CC3333;">+0.2pp</span></div>
+  <div class="commentary-stat">Peer avg <span>5.0%</span></div>
+  <div class="commentary-stat">Gap <span style="color:#CC3333;">+0.4pp</span></div>
   <div class="commentary-stat">Active <span>1 days</span></div>
   <div class="commentary-stat">Since <span>2026-04-24</span></div>
 </div>
-  <div class="commentary-prose">Payment-failed complaints at 5.3% create duty-of-care scrutiny risk if regulators treat blocked transactions as denial of essential banking access. Customers report app crashes mid-authorisation and PIN entry failures leaving payments incomplete, with Barclays running above every named peer. Deploy a targeted fix for the authorisation-flow crash by end of this week before the incident log grows into a regulatory exhibit.</div>
+  <div class="commentary-prose">Payment failures that block customers from completing transactions expose Barclays to FCA service-availability scrutiny. Customers report the app closing mid-authorisation and PIN entry failing, with Barclays' complaint rate running above every named peer. Escalate this to engineering today and ship a targeted fix for the payment-authorisation flow before the complaint rate widens further.</div>
   <div class="commentary-quote">&ldquo;Terrible app sends me to authorise payments to my bank then app closes and doesn't take payment.&rdquo;</div>
+  
+</div>
+<div class="commentary-card strength">
+  <div class="commentary-card-header">
+    <span class="commentary-issue">Slow Performance</span>
+    <span class="commentary-badge strength">STRENGTH</span>
+    <span class="commentary-badge sev-p2">P2</span>
+    <span style="font-size:9px;color:#3A6A7F;">TECHNICAL</span>
+    
+  </div>
+  
+<div class="commentary-stats">
+  <div class="commentary-stat">Barclays rate <span>7.7%</span></div>
+  <div class="commentary-stat">Peer avg <span>10.8%</span></div>
+  <div class="commentary-stat">Gap <span style="color:#00AFA0;">-3.1pp</span></div>
+  
+  
+</div>
+  <div class="commentary-prose">Barclays delivers noticeably faster, more reliable app performance than peers during high-traffic banking moments. Users who experience fewer slowdowns are significantly less likely to open a competitor app out of frustration, reducing silent attrition.</div>
+  <div class="commentary-quote">&ldquo;You need to work on its log-in. It can be faster. Thanks for your work on the app.&rdquo;</div>
   
 </div>
     </div>
@@ -1019,7 +1059,7 @@ document.addEventListener('click', function(e) {
   </div>
   <div class="topbar-box-body">
     <div style="margin-bottom:12px;font-size:10px;color:#3A6A7F;">
-      Peer avg rates: <span style="font-size:10px;color:#F5A623;margin-right:10px;">NatWest: 4.6%</span><span style="font-size:10px;color:#00AFA0;margin-right:10px;">Lloyds: 5.6%</span><span style="font-size:10px;color:#CC3300;margin-right:10px;">HSBC: 6.0%</span><span style="font-size:10px;color:#7B5EA7;margin-right:10px;">Monzo: 7.8%</span><span style="font-size:10px;color:#4A9BD4;margin-right:10px;">Revolut: 6.2%</span>
+      Peer avg rates: <span style="font-size:10px;color:#F5A623;margin-right:10px;">NatWest: 4.5%</span><span style="font-size:10px;color:#00AFA0;margin-right:10px;">Lloyds: 5.9%</span><span style="font-size:10px;color:#CC3300;margin-right:10px;">HSBC: 6.2%</span><span style="font-size:10px;color:#7B5EA7;margin-right:10px;">Monzo: 8.0%</span><span style="font-size:10px;color:#4A9BD4;margin-right:10px;">Revolut: 6.2%</span>
     </div>
     <table class="bench-table">
       <thead>
@@ -1041,20 +1081,20 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#CC3333;"></div>
         </div>
-        <span class="bench-bar-pct" style="color:#CC3333;">2.1%</span>
+        <span class="bench-bar-pct" style="color:#CC3333;">2.0%</span>
       </div>
     </div>
     <div>
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Peer avg</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:76%;background:#3A6A7F;"></div>
+          <div class="bench-bar-fill" style="width:77%;background:#3A6A7F;"></div>
         </div>
         <span class="bench-bar-pct">1.6%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-neutral">+0.5pp</td>
+  <td class="bench-gap-cell bench-gap-neutral">+0.4pp</td>
   <div class="bench-days-cell">1d active</div>
 </tr>
 <tr class="bench-issue-row">
@@ -1073,13 +1113,13 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Peer avg</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:48%;background:#3A6A7F;"></div>
+          <div class="bench-bar-fill" style="width:52%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">6.0%</span>
+        <span class="bench-bar-pct">6.5%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-positive">+6.4pp</td>
+  <td class="bench-gap-cell bench-gap-positive">+5.9pp</td>
   <div class="bench-days-cell">1d active</div>
 </tr>
 <tr class="bench-issue-row">
@@ -1089,9 +1129,9 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Barclays</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:79%;background:#00AEEF;"></div>
+          <div class="bench-bar-fill" style="width:82%;background:#00AEEF;"></div>
         </div>
-        <span class="bench-bar-pct" style="color:#00AEEF;">7.4%</span>
+        <span class="bench-bar-pct" style="color:#00AEEF;">7.7%</span>
       </div>
     </div>
     <div>
@@ -1104,7 +1144,7 @@ document.addEventListener('click', function(e) {
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-neutral">-1.9pp</td>
+  <td class="bench-gap-cell bench-gap-neutral">-1.6pp</td>
   <div class="bench-days-cell"></div>
 </tr>
 <tr class="bench-issue-row">
@@ -1114,7 +1154,7 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Barclays</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:27%;background:#00AEEF;"></div>
+          <div class="bench-bar-fill" style="width:24%;background:#00AEEF;"></div>
         </div>
         <span class="bench-bar-pct" style="color:#00AEEF;">0.7%</span>
       </div>
@@ -1125,11 +1165,11 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">2.6%</span>
+        <span class="bench-bar-pct">2.8%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-neutral">-1.9pp</td>
+  <td class="bench-gap-cell bench-gap-negative">-2.1pp</td>
   <div class="bench-days-cell"></div>
 </tr>
 <tr class="bench-issue-row">
@@ -1141,14 +1181,14 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#CC3333;"></div>
         </div>
-        <span class="bench-bar-pct" style="color:#CC3333;">1.8%</span>
+        <span class="bench-bar-pct" style="color:#CC3333;">1.7%</span>
       </div>
     </div>
     <div>
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Peer avg</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:48%;background:#3A6A7F;"></div>
+          <div class="bench-bar-fill" style="width:47%;background:#3A6A7F;"></div>
         </div>
         <span class="bench-bar-pct">0.8%</span>
       </div>
@@ -1164,9 +1204,9 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Barclays</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:56%;background:#00AEEF;"></div>
+          <div class="bench-bar-fill" style="width:58%;background:#00AEEF;"></div>
         </div>
-        <span class="bench-bar-pct" style="color:#00AEEF;">3.9%</span>
+        <span class="bench-bar-pct" style="color:#00AEEF;">4.0%</span>
       </div>
     </div>
     <div>
@@ -1175,11 +1215,11 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">6.9%</span>
+        <span class="bench-bar-pct">6.8%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-negative">-3.0pp</td>
+  <td class="bench-gap-cell bench-gap-negative">-2.8pp</td>
   <div class="bench-days-cell"></div>
 </tr>
 <tr class="bench-issue-row">
@@ -1189,9 +1229,9 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Barclays</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:74%;background:#00AEEF;"></div>
+          <div class="bench-bar-fill" style="width:71%;background:#00AEEF;"></div>
         </div>
-        <span class="bench-bar-pct" style="color:#00AEEF;">7.8%</span>
+        <span class="bench-bar-pct" style="color:#00AEEF;">7.7%</span>
       </div>
     </div>
     <div>
@@ -1200,11 +1240,11 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">10.5%</span>
+        <span class="bench-bar-pct">10.8%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-negative">-2.7pp</td>
+  <td class="bench-gap-cell bench-gap-negative">-3.1pp</td>
   <div class="bench-days-cell"></div>
 </tr>
       </tbody>
@@ -1219,7 +1259,7 @@ document.addEventListener('click', function(e) {
   </div>
   <div class="topbar-box-body">
     <div style="margin-bottom:12px;font-size:10px;color:#3A6A7F;">
-      Peer avg rates: <span style="font-size:10px;color:#F5A623;margin-right:10px;">NatWest: 8.5%</span><span style="font-size:10px;color:#00AFA0;margin-right:10px;">Lloyds: 7.6%</span><span style="font-size:10px;color:#CC3300;margin-right:10px;">HSBC: 7.2%</span><span style="font-size:10px;color:#7B5EA7;margin-right:10px;">Monzo: 5.6%</span><span style="font-size:10px;color:#4A9BD4;margin-right:10px;">Revolut: 7.1%</span>
+      Peer avg rates: <span style="font-size:10px;color:#F5A623;margin-right:10px;">NatWest: 8.6%</span><span style="font-size:10px;color:#00AFA0;margin-right:10px;">Lloyds: 7.4%</span><span style="font-size:10px;color:#CC3300;margin-right:10px;">HSBC: 7.1%</span><span style="font-size:10px;color:#7B5EA7;margin-right:10px;">Monzo: 5.5%</span><span style="font-size:10px;color:#4A9BD4;margin-right:10px;">Revolut: 7.0%</span>
     </div>
     <table class="bench-table">
       <thead>
@@ -1239,9 +1279,9 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Barclays</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:75%;background:#00AEEF;"></div>
+          <div class="bench-bar-fill" style="width:74%;background:#00AEEF;"></div>
         </div>
-        <span class="bench-bar-pct" style="color:#00AEEF;">7.1%</span>
+        <span class="bench-bar-pct" style="color:#00AEEF;">7.0%</span>
       </div>
     </div>
     <div>
@@ -1250,11 +1290,11 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">9.3%</span>
+        <span class="bench-bar-pct">9.4%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-negative">-2.3pp</td>
+  <td class="bench-gap-cell bench-gap-negative">-2.4pp</td>
   <div class="bench-days-cell"></div>
 </tr>
 <tr class="bench-issue-row">
@@ -1266,20 +1306,20 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#CC3333;"></div>
         </div>
-        <span class="bench-bar-pct" style="color:#CC3333;">41.0%</span>
+        <span class="bench-bar-pct" style="color:#CC3333;">40.8%</span>
       </div>
     </div>
     <div>
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Peer avg</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:88%;background:#3A6A7F;"></div>
+          <div class="bench-bar-fill" style="width:87%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">36.1%</span>
+        <span class="bench-bar-pct">35.8%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-positive">+4.8pp</td>
+  <td class="bench-gap-cell bench-gap-positive">+5.0pp</td>
   <div class="bench-days-cell">1d active</div>
 </tr>
 <tr class="bench-issue-row">
@@ -1291,7 +1331,7 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#CC3333;"></div>
         </div>
-        <span class="bench-bar-pct" style="color:#CC3333;">2.5%</span>
+        <span class="bench-bar-pct" style="color:#CC3333;">2.3%</span>
       </div>
     </div>
     <div>
@@ -1300,11 +1340,11 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:55%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">1.4%</span>
+        <span class="bench-bar-pct">1.3%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-neutral">+1.1pp</td>
+  <td class="bench-gap-cell bench-gap-neutral">+1.0pp</td>
   <div class="bench-days-cell">1d active</div>
 </tr>
 <tr class="bench-issue-row">
@@ -1316,20 +1356,20 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#CC3333;"></div>
         </div>
-        <span class="bench-bar-pct" style="color:#CC3333;">2.5%</span>
+        <span class="bench-bar-pct" style="color:#CC3333;">2.7%</span>
       </div>
     </div>
     <div>
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Peer avg</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:83%;background:#3A6A7F;"></div>
+          <div class="bench-bar-fill" style="width:78%;background:#3A6A7F;"></div>
         </div>
         <span class="bench-bar-pct">2.1%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-neutral">+0.4pp</td>
+  <td class="bench-gap-cell bench-gap-neutral">+0.6pp</td>
   <div class="bench-days-cell">1d active</div>
 </tr>
 <tr class="bench-issue-row">
@@ -1339,9 +1379,9 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Barclays</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:68%;background:#00AEEF;"></div>
+          <div class="bench-bar-fill" style="width:74%;background:#00AEEF;"></div>
         </div>
-        <span class="bench-bar-pct" style="color:#00AEEF;">3.9%</span>
+        <span class="bench-bar-pct" style="color:#00AEEF;">4.0%</span>
       </div>
     </div>
     <div>
@@ -1350,11 +1390,11 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">5.7%</span>
+        <span class="bench-bar-pct">5.3%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-neutral">-1.8pp</td>
+  <td class="bench-gap-cell bench-gap-neutral">-1.3pp</td>
   <div class="bench-days-cell"></div>
 </tr>
 <tr class="bench-issue-row">
@@ -1373,13 +1413,13 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Peer avg</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:96%;background:#3A6A7F;"></div>
+          <div class="bench-bar-fill" style="width:93%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">5.1%</span>
+        <span class="bench-bar-pct">5.0%</span>
       </div>
     </div>
   </td>
-  <td class="bench-gap-cell bench-gap-neutral">+0.2pp</td>
+  <td class="bench-gap-cell bench-gap-neutral">+0.4pp</td>
   <div class="bench-days-cell">1d active</div>
 </tr>
 <tr class="bench-issue-row">
@@ -1414,9 +1454,9 @@ document.addEventListener('click', function(e) {
       <div style="font-size:8px;color:#3A6A7F;margin-bottom:2px;">Barclays</div>
       <div class="bench-bar-wrap">
         <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:69%;background:#00AEEF;"></div>
+          <div class="bench-bar-fill" style="width:68%;background:#00AEEF;"></div>
         </div>
-        <span class="bench-bar-pct" style="color:#00AEEF;">1.8%</span>
+        <span class="bench-bar-pct" style="color:#00AEEF;">1.7%</span>
       </div>
     </div>
     <div>
@@ -1425,7 +1465,7 @@ document.addEventListener('click', function(e) {
         <div class="bench-bar-bg">
           <div class="bench-bar-fill" style="width:100%;background:#3A6A7F;"></div>
         </div>
-        <span class="bench-bar-pct">2.6%</span>
+        <span class="bench-bar-pct">2.4%</span>
       </div>
     </div>
   </td>
@@ -1448,7 +1488,7 @@ document.addEventListener('click', function(e) {
   <div class="topbar-box-body">
 <div class="inf-card" style="border-left-color:#F5A623;">
   <div class="inf-header">
-    <span class="inf-id">MIL-F-20260424-004</span>
+    <span class="inf-id">MIL-F-20260425-005</span>
     <span class="inf-tier" style="color:#F5A623;">P2</span>
     <span class="inf-sev">SIG P2</span>
     <span class="badge-chr">CHR-001</span>
@@ -1456,22 +1496,22 @@ document.addEventListener('click', function(e) {
   <div class="inf-summary">P2 signal cluster: barclays J_SERVICE_01, 0 P0 / 0 P1 signals, anchor: CHR-001.</div>
   <div class="cac-label">CAC CONFIDENCE</div>
   <div class="cac-track">
-    <div class="cac-fill" style="width:40%;background:#4A9BD4;"></div>
-    <span class="cac-val" style="color:#4A9BD4;">0.403</span>
+    <div class="cac-fill" style="width:41%;background:#4A9BD4;"></div>
+    <span class="cac-val" style="color:#4A9BD4;">0.411</span>
   </div>
   <div class="inf-meta">
     <span class="inf-meta-item"><span class="meta-label">Journey</span>General App Use</span>
     <span class="inf-meta-item"><span class="meta-label">Signals</span>
       <span style="color:#CC0000;">P0:0</span>
       <span style="color:#F5A623;margin-left:4px;">P1:0</span>
-      <span style="color:#4A9BD4;margin-left:4px;">P2:20</span>
+      <span style="color:#4A9BD4;margin-left:4px;">P2:22</span>
     </span>
     <span class="inf-kw"><span class="kw-pill">customer</span><span class="kw-pill">significant</span><span class="kw-pill">friction</span></span>
   </div>
 </div>
 <div class="inf-card" style="border-left-color:#4A7A8F;">
   <div class="inf-header">
-    <span class="inf-id">MIL-F-20260424-134</span>
+    <span class="inf-id">MIL-F-20260425-138</span>
     <span class="inf-tier" style="color:#4A7A8F;">P3</span>
     <span class="inf-sev">SIG P0</span>
     <span class="badge-chr">CHR-018</span>
@@ -1494,7 +1534,7 @@ document.addEventListener('click', function(e) {
 </div>
 <div class="inf-card" style="border-left-color:#4A7A8F;">
   <div class="inf-header">
-    <span class="inf-id">MIL-F-20260424-060</span>
+    <span class="inf-id">MIL-F-20260425-063</span>
     <span class="inf-tier" style="color:#4A7A8F;">P3</span>
     <span class="inf-sev">SIG P2</span>
     <span class="badge-chr">CHR-004</span>
@@ -1503,26 +1543,26 @@ document.addEventListener('click', function(e) {
   <div class="cac-label">CAC CONFIDENCE</div>
   <div class="cac-track">
     <div class="cac-fill" style="width:33%;background:#4A9BD4;"></div>
-    <span class="cac-val" style="color:#4A9BD4;">0.335</span>
+    <span class="cac-val" style="color:#4A9BD4;">0.334</span>
   </div>
   <div class="inf-meta">
     <span class="inf-meta-item"><span class="meta-label">Journey</span>General App Use</span>
     <span class="inf-meta-item"><span class="meta-label">Signals</span>
       <span style="color:#CC0000;">P0:0</span>
       <span style="color:#F5A623;margin-left:4px;">P1:0</span>
-      <span style="color:#4A9BD4;margin-left:4px;">P2:96</span>
+      <span style="color:#4A9BD4;margin-left:4px;">P2:100</span>
     </span>
     <span class="inf-kw"><span class="kw-pill">customer</span><span class="kw-pill">feature</span><span class="kw-pill">friction</span></span>
   </div>
 </div>
 <div class="inf-card" style="border-left-color:#4A7A8F;">
   <div class="inf-header">
-    <span class="inf-id">MIL-F-20260424-056</span>
+    <span class="inf-id">MIL-F-20260425-059</span>
     <span class="inf-tier" style="color:#4A7A8F;">P3</span>
     <span class="inf-sev">SIG P0</span>
     <span class="badge-chr">CHR-003</span>
   </div>
-  <div class="inf-summary">P0 signal cluster: barclays J_SERVICE_01, 17 P0 / 3 P1 signals, anchor: CHR-003.</div>
+  <div class="inf-summary">P0 signal cluster: barclays J_SERVICE_01, 18 P0 / 3 P1 signals, anchor: CHR-003.</div>
   <div class="cac-label">CAC CONFIDENCE</div>
   <div class="cac-track">
     <div class="cac-fill" style="width:28%;background:#4A9BD4;"></div>
@@ -1531,7 +1571,7 @@ document.addEventListener('click', function(e) {
   <div class="inf-meta">
     <span class="inf-meta-item"><span class="meta-label">Journey</span>General App Use</span>
     <span class="inf-meta-item"><span class="meta-label">Signals</span>
-      <span style="color:#CC0000;">P0:17</span>
+      <span style="color:#CC0000;">P0:18</span>
       <span style="color:#F5A623;margin-left:4px;">P1:3</span>
       <span style="color:#4A9BD4;margin-left:4px;">P2:0</span>
     </span>
@@ -1540,30 +1580,30 @@ document.addEventListener('click', function(e) {
 </div>
 <div class="inf-card" style="border-left-color:#4A7A8F;">
   <div class="inf-header">
-    <span class="inf-id">MIL-F-20260424-055</span>
+    <span class="inf-id">MIL-F-20260425-058</span>
     <span class="inf-tier" style="color:#4A7A8F;">P3</span>
     <span class="inf-sev">SIG P0</span>
     <span class="badge-chr">CHR-003</span>
   </div>
-  <div class="inf-summary">P0 signal cluster: barclays J_SERVICE_01, 8 P0 / 25 P1 signals, anchor: CHR-003.</div>
+  <div class="inf-summary">P0 signal cluster: barclays J_SERVICE_01, 8 P0 / 27 P1 signals, anchor: CHR-003.</div>
   <div class="cac-label">CAC CONFIDENCE</div>
   <div class="cac-track">
     <div class="cac-fill" style="width:26%;background:#4A9BD4;"></div>
-    <span class="cac-val" style="color:#4A9BD4;">0.267</span>
+    <span class="cac-val" style="color:#4A9BD4;">0.268</span>
   </div>
   <div class="inf-meta">
     <span class="inf-meta-item"><span class="meta-label">Journey</span>General App Use</span>
     <span class="inf-meta-item"><span class="meta-label">Signals</span>
       <span style="color:#CC0000;">P0:8</span>
-      <span style="color:#F5A623;margin-left:4px;">P1:25</span>
+      <span style="color:#F5A623;margin-left:4px;">P1:27</span>
       <span style="color:#4A9BD4;margin-left:4px;">P2:1</span>
     </span>
-    <span class="inf-kw"><span class="kw-pill">crashes</span><span class="kw-pill">friction</span><span class="kw-pill">preventing</span></span>
+    <span class="inf-kw"><span class="kw-pill">crashes</span><span class="kw-pill">friction</span><span class="kw-pill">significant</span></span>
   </div>
 </div>
 <div class="inf-card" style="border-left-color:#4A7A8F;">
   <div class="inf-header">
-    <span class="inf-id">MIL-F-20260424-132</span>
+    <span class="inf-id">MIL-F-20260425-136</span>
     <span class="inf-tier" style="color:#4A7A8F;">P3</span>
     <span class="inf-sev">SIG P2</span>
     <span class="badge-chr">CHR-003</span>
@@ -1586,7 +1626,7 @@ document.addEventListener('click', function(e) {
 </div>
 <div class="inf-card" style="border-left-color:#4A7A8F;">
   <div class="inf-header">
-    <span class="inf-id">MIL-F-20260424-001</span>
+    <span class="inf-id">MIL-F-20260425-001</span>
     <span class="inf-tier" style="color:#4A7A8F;">P3</span>
     <span class="inf-sev">SIG P0</span>
     <span class="badge-chr">CHR-005</span>
@@ -1609,7 +1649,7 @@ document.addEventListener('click', function(e) {
 </div>
 <div class="inf-card" style="border-left-color:#4A7A8F;">
   <div class="inf-header">
-    <span class="inf-id">MIL-F-20260424-006</span>
+    <span class="inf-id">MIL-F-20260425-007</span>
     <span class="inf-tier" style="color:#4A7A8F;">P3</span>
     <span class="inf-sev">SIG P0</span>
     <span class="badge-chr">CHR-005</span>
