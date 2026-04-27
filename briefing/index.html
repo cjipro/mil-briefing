@@ -4,8 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sonar — App Intelligence Briefing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- MIL-157 — self-hosted Plus Jakarta Sans + DM Mono (OFL). Drops the
+     Google Fonts CDN dependency that risked corp-proxy filtering on
+     Barclays / HSBC / Lloyds networks. fonts ship via publish_site.py
+     to cjipro.com/fonts/, same origin as the briefing pages. -->
+<link rel="preload" href="/fonts/plus-jakarta-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/briefings_fonts.css">
 <style>
 /* -- Reset & Base ----------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -372,7 +377,7 @@ a { color: var(--blue); text-decoration: none; }
           </div>
           <div class="sent-row-2">
             <span class="sent-card-baseline">Baseline: 88</span>
-            <span class="sent-card-ts">2026-04-26 22:05 UTC</span>
+            <span class="sent-card-ts">2026-04-27 12:55 UTC</span>
           </div>
           <div class="sent-card-progress">
             <div class="sent-progress-fill" style="width:89%;"></div>
@@ -390,7 +395,7 @@ a { color: var(--blue); text-decoration: none; }
       </div>
       <div class="topbar-pills" style="margin-top:auto;">
         <span class="version-pill">v8.20.1</span>
-        <span class="version-pill">2026-04-26 22:05 UTC</span>
+        <span class="version-pill">2026-04-27 12:55 UTC</span>
         
         <div class="live-dot">LIVE</div>
       </div>
@@ -431,8 +436,8 @@ a { color: var(--blue); text-decoration: none; }
         <div class="journey-list-item">
           <span class="journey-list-name">Feature Broken</span>
           <span class="journey-list-right">
-            <span class="journey-list-score" style="color:#E8F4FA;">56</span>
-            <span class="journey-list-meta">18 reviews &middot; 1d sustained</span>
+            <span class="journey-list-score" style="color:#E8F4FA;">52</span>
+            <span class="journey-list-meta">21 reviews &middot; 1d sustained</span>
             <span class="journey-list-status" style="color:#F5A623;">&#8594; WATCH</span>
           </span>
         </div>
@@ -472,7 +477,7 @@ a { color: var(--blue); text-decoration: none; }
     <div class="exec-alert-header">
       <span class="exec-alert-pulse"></span>
       <span class="exec-alert-title">Barclays Alert</span>
-      <span class="exec-alert-ts">2026-04-26 22:05 UTC</span>
+      <span class="exec-alert-ts">2026-04-27 12:55 UTC</span>
     </div>
     <div class="exec-alert-body">
       <div class="exec-alert-pills" style="margin-bottom:10px;">
@@ -505,7 +510,7 @@ a { color: var(--blue); text-decoration: none; }
 </div>
 
 <!-- -- Journey Sentiment Row ----------------------------------------------- -->
-<div class="journey-row-header"><span class="journey-row-title">TOP 5 AFFECTED JOURNEYS</span><span class="journey-row-sub">last 7 days &middot; 4 of 8 with signal</span><span class="journey-row-legend"><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--red);">ACUTE</span> <span class="journey-legend-def">severe + new/worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:#B85450;">PERSISTENT</span> <span class="journey-legend-def">severe &ge; 7d, stable</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--amber);">DRIFT</span> <span class="journey-legend-def">no severe, trend worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--green);">STABLE</span> <span class="journey-legend-def">quiet</span></span><span class="journey-legend-item journey-legend-metric"><span class="journey-legend-def">severe day = &ge;1 P0/P1 review, last 30d</span></span></span></div><div class="journey-row"><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Log In to Account</div><div class="journey-cell-score" style="color:#cc3333;">30</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">6 reviews &middot; 15 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--amber);"><div class="journey-cell-name">Get Support</div><div class="journey-cell-score" style="color:#E8F4FA;">86</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--red);">↘</span><span class="journey-status-label" style="color:var(--amber);">DRIFT</span></div><div class="journey-cell-submeta">13 reviews &middot; 1 severe day</div></div><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Open or Register Account</div><div class="journey-cell-score" style="color:#cc3333;">20</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--red);">ACUTE</span><span class="journey-cell-lowvol">low-volume</span></div><div class="journey-cell-submeta">3 reviews &middot; 4 severe days</div></div><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Make a Payment</div><div class="journey-cell-score" style="color:#E8F4FA;">71</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">13 reviews &middot; 13 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--green);"><div class="journey-cell-name">Check Balance or Statement</div><div class="journey-cell-score" style="color:#E8F4FA;">70</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--green);">STABLE</span></div><div class="journey-cell-submeta">12 reviews &middot; 1 severe day</div></div></div>
+<div class="journey-row-header"><span class="journey-row-title">TOP 5 AFFECTED JOURNEYS</span><span class="journey-row-sub">last 7 days &middot; 4 of 8 with signal</span><span class="journey-row-legend"><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--red);">ACUTE</span> <span class="journey-legend-def">severe + new/worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:#B85450;">PERSISTENT</span> <span class="journey-legend-def">severe &ge; 7d, stable</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--amber);">DRIFT</span> <span class="journey-legend-def">no severe, trend worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--green);">STABLE</span> <span class="journey-legend-def">quiet</span></span><span class="journey-legend-item journey-legend-metric"><span class="journey-legend-def">severe day = &ge;1 P0/P1 review, last 30d</span></span></span></div><div class="journey-row"><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Log In to Account</div><div class="journey-cell-score" style="color:#cc3333;">30</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">6 reviews &middot; 15 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--amber);"><div class="journey-cell-name">Get Support</div><div class="journey-cell-score" style="color:#E8F4FA;">86</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--red);">↘</span><span class="journey-status-label" style="color:var(--amber);">DRIFT</span></div><div class="journey-cell-submeta">13 reviews &middot; 1 severe day</div></div><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Open or Register Account</div><div class="journey-cell-score" style="color:#cc3333;">20</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--red);">ACUTE</span><span class="journey-cell-lowvol">low-volume</span></div><div class="journey-cell-submeta">4 reviews &middot; 4 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--green);"><div class="journey-cell-name">Check Balance or Statement</div><div class="journey-cell-score" style="color:#E8F4FA;">70</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--green);">STABLE</span></div><div class="journey-cell-submeta">14 reviews &middot; 1 severe day</div></div><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Make a Payment</div><div class="journey-cell-score" style="color:#E8F4FA;">67</div><div class="journey-cell-meta"><span class="traj-icon" style="color:var(--green);">↗</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">14 reviews &middot; 12 severe days</div></div></div>
 
 <!-- -- Body: Left + Right Columns ------------------------------------------ -->
 <div class="body-wrapper">
@@ -541,17 +546,17 @@ a { color: var(--blue); text-decoration: none; }
   </div>
   <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
   <div class="verdict-label">VERDICT</div>
-  <div class="verdict-text">Feature Broken -- 18 signals, minor issues only.</div>
+  <div class="verdict-text">Feature Broken -- 21 signals, minor issues only.</div>
   <div class="version-delta-row">
     <span class="version-label">v—</span>
     <code class="version-delta" style="color:#6b7088;">— no baseline</code>
   </div>
   <div class="signal-counts">
     <span class="sig-count sig-p1">P1: 0</span>
-    <span class="sig-count sig-p2">P2: 18</span>
+    <span class="sig-count sig-p2">P2: 21</span>
   </div>
   
-  <div class="market-note">Market signal analysis — public app store data - 2.80 avg rating</div>
+  <div class="market-note">Market signal analysis — public app store data - 2.60 avg rating</div>
 </div>
 
 <div class="journey-card" style="border-left:3px solid var(--red);">
@@ -713,7 +718,7 @@ a { color: var(--blue); text-decoration: none; }
   <span class="footer-sep">-</span>
   <span class="footer-item">Article Zero</span>
   <span class="footer-sep">-</span>
-  <span class="footer-item">Published 2026-04-26 22:06 UTC</span>
+  <span class="footer-item">Published 2026-04-27 12:56 UTC</span>
 </div>
 
 <!-- -- Ask Sonar Button ----------------------------------------------------- -->
