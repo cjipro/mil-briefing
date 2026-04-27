@@ -11,6 +11,11 @@
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
+<!-- MIL-136 — self-hosted Source Serif 4 + Inter (OFL). -->
+<link rel="preload" href="/fonts/source-serif-4-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+
 
 <link rel="canonical" href="https://cjipro.com/sign-in/">
 <link rel="privacy-policy" href="/privacy/">
@@ -25,8 +30,8 @@
     --cream:     #FAFAF7;
     --navy:      #00273D;
     --accent:    #003A5C;
-    --serif:     Georgia, "Times New Roman", "DejaVu Serif", serif;
-    --sans:      -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --serif:     "Source Serif 4", Georgia, "Times New Roman", "DejaVu Serif", serif;
+    --sans:      Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   }
   * { box-sizing: border-box; }
   html, body {
@@ -90,10 +95,18 @@
     border-radius: 3px;
     background: var(--paper);
   }
-  input[type="email"]:focus {
+  input[type="email"]:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 0;
     border-color: var(--accent);
+  }
+  /* MIL-139 — short help text under the input, programmatically associated
+     via aria-describedby. Same colour as the trust strip; one-line. */
+  .help {
+    margin: 0.4rem 0 0;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.45;
   }
   button {
     margin-top: 1.5rem;
@@ -109,6 +122,83 @@
     cursor: pointer;
   }
   button:hover { background: var(--navy); }
+  button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  /* MIL-140 — divider + passkey CTA below magic-link form. Defuses
+     "where's the second factor?" at first IT-review touch. */
+  .or-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.5rem 0 0;
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .or-divider::before,
+  .or-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--hairline);
+  }
+  .passkey-wrap {
+    position: relative;
+    margin-top: 1rem;
+  }
+  button.passkey {
+    margin-top: 0;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--hairline);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+  }
+  button.passkey:hover { background: var(--cream); border-color: var(--ink-soft); }
+  button.passkey[disabled] {
+    cursor: not-allowed;
+    color: var(--muted);
+    background: var(--cream);
+    border-color: var(--hairline);
+    opacity: 0.85;
+  }
+  button.passkey[disabled]:hover { background: var(--cream); border-color: var(--hairline); }
+  button.passkey svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+  .passkey-tip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: calc(100% + 0.4rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 0.78rem;
+    line-height: 1.45;
+    padding: 0.55rem 0.75rem;
+    border-radius: 3px;
+    width: max-content;
+    max-width: 17rem;
+    text-align: center;
+    pointer-events: none;
+    transition: opacity 0.12s ease-in-out, visibility 0s linear 0.12s;
+    z-index: 5;
+  }
+  .passkey-wrap:hover .passkey-tip,
+  .passkey-wrap:focus-within .passkey-tip {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.12s ease-in-out, visibility 0s;
+  }
+
   .fineprint {
     margin: 1.25rem 0 0 0;
     font-size: 0.85rem;
@@ -147,14 +237,41 @@
       Enter your work email. We'll send you a one-time sign-in link.
     </p>
 
-    <form method="get" action="https://login.cjipro.com/">
+    <form method="get" action="https://login.cjipro.com/" novalidate>
       <label for="email">Work email</label>
       <input id="email" name="email" type="email" required autocomplete="email"
-             autofocus inputmode="email" spellcheck="false">
+             autofocus inputmode="email" spellcheck="false"
+             aria-describedby="signin-help">
+      <p class="help" id="signin-help">We'll email a one-time sign-in link to this address.</p>
       <button type="submit">Send sign-in link</button>
     </form>
 
+    <!-- MIL-140 — passkey CTA. Disabled until MIL-67 Phase B activates the
+         WebAuthn challenge handler; tooltip explains the timeline. Visible
+         affordance answers "where's the second factor?" at IT review. -->
+    <div class="or-divider" role="separator" aria-label="or">or</div>
+
+    <div class="passkey-wrap">
+      <button type="button" class="passkey" disabled
+              aria-describedby="passkey-tip-text"
+              aria-label="Sign in with passkey (currently unavailable)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
+          <circle cx="9" cy="12" r="4"></circle>
+          <path d="M13 12h8"></path>
+          <path d="M19 12v3"></path>
+          <path d="M16 12v2"></path>
+        </svg>
+        Sign in with passkey
+      </button>
+      <span class="passkey-tip" id="passkey-tip-text" role="tooltip">
+        Passkeys available 2026-Q2 — request via your admin.
+      </span>
+    </div>
+
     <p class="fineprint">
+      Magic-link sends a one-time code. Passkeys use your device biometrics.
       Links work for 10 minutes. No passwords stored.
     </p>
 
