@@ -417,28 +417,36 @@ a { color: var(--blue); text-decoration: none; }
         <div><div class="issues-stat-label">Needs Attention</div><div class="issues-stat-sub">REGRESSION journeys</div></div>
       </div>
       <div class="issues-stat-row">
-        <span class="issues-stat-num" style="color:var(--amber);">1</span>
+        <span class="issues-stat-num" style="color:var(--amber);">0</span>
         <div><div class="issues-stat-label">Watch</div><div class="issues-stat-sub">WATCH journeys</div></div>
       </div>
       <div class="issues-stat-row">
-        <span class="issues-stat-num" style="color:var(--teal);">1</span>
+        <span class="issues-stat-num" style="color:var(--teal);">2</span>
         <div><div class="issues-stat-label">Performing Well</div><div class="issues-stat-sub">across all sources</div></div>
       </div>
       <div class="issues-divider"></div>
         <div class="journey-list-item">
           <span class="journey-list-name">App Not Opening</span>
           <span class="journey-list-right">
-            <span class="journey-list-score" style="color:#cc3333;">37</span>
-            <span class="journey-list-meta">6 reviews &middot; 1d sustained</span>
+            <span class="journey-list-score" style="color:#cc3333;">34</span>
+            <span class="journey-list-meta">7 reviews &middot; 1d sustained</span>
             <span class="journey-list-status" style="color:#CC0000;">&#8600; REGRESSION</span>
           </span>
         </div>
         <div class="journey-list-item">
           <span class="journey-list-name">Feature Broken</span>
           <span class="journey-list-right">
-            <span class="journey-list-score" style="color:#E8F4FA;">52</span>
-            <span class="journey-list-meta">30 reviews &middot; 1d sustained</span>
+            <span class="journey-list-score" style="color:#E8F4FA;">54</span>
+            <span class="journey-list-meta">37 reviews &middot; 1d sustained</span>
             <span class="journey-list-status" style="color:#00AFA0;">&#8599; PERFORMING WELL</span>
+          </span>
+        </div>
+        <div class="journey-list-item">
+          <span class="journey-list-name">Login Failed</span>
+          <span class="journey-list-right">
+            <span class="journey-list-score" style="color:#cc3333;">35</span>
+            <span class="journey-list-meta">4 reviews</span>
+            <span class="journey-list-status" style="color:#CC0000;">&#8600; REGRESSION</span>
           </span>
         </div>
         <div class="journey-list-item">
@@ -450,19 +458,11 @@ a { color: var(--blue); text-decoration: none; }
           </span>
         </div>
         <div class="journey-list-item">
-          <span class="journey-list-name">Payment Failed</span>
+          <span class="journey-list-name">Customer Support Failure</span>
           <span class="journey-list-right">
-            <span class="journey-list-score" style="color:#cc3333;">30</span>
-            <span class="journey-list-meta">2 reviews &middot; 1d sustained</span>
-            <span class="journey-list-status" style="color:#CC0000;">&#8600; REGRESSION</span>
-          </span>
-        </div>
-        <div class="journey-list-item">
-          <span class="journey-list-name">Login Failed</span>
-          <span class="journey-list-right">
-            <span class="journey-list-score" style="color:#cc3333;">20</span>
-            <span class="journey-list-meta">2 reviews</span>
-            <span class="journey-list-status" style="color:#F5A623;">&#8594; WATCH</span>
+            <span class="journey-list-score" style="color:#cc3333;">40</span>
+            <span class="journey-list-meta">8 reviews</span>
+            <span class="journey-list-status" style="color:#00AFA0;">&#8599; PERFORMING WELL</span>
           </span>
         </div>
 <div style="height:104px;border:1px solid #003A5C;border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;text-align:left;background:#001E2E;overflow:hidden;"><div style="font-size:10px;color:#3A6A7F;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">App Not Opening</div><div style="font-size:12px;color:#B8D4E0;font-style:italic;line-height:1.5;overflow:hidden;">&ldquo;Just stopped working.. Error code 0002. I&#x27;ve uninstalled the app and reinstalled it, but I get the same error code whilst trying to reregister my account.&rdquo;</div><div style="font-size:11px;color:#4A7A8F;margin-top:6px;letter-spacing:0.03em;white-space:nowrap;">★☆☆☆☆ &middot; Google Play &middot; 29 May</div></div>      <div class="box2-legend">
@@ -485,7 +485,7 @@ a { color: var(--blue); text-decoration: none; }
         <span class="exec-pill" style="background:rgba(0,174,239,0.10);color:#00AEEF;border:1px solid rgba(0,174,239,0.3);">STRONG SIGNAL</span>
       </div>
       <div class="exec-alert-section-label">THE SITUATION</div>
-      <div class="exec-alert-section-text">Customers reporting app not opening and app crashing</div>
+      <div class="exec-alert-section-text">Customers reporting app not opening and login failed</div>
       <div class="exec-alert-section-label">THE LESSON — HSBC, 2025</div>
       <div class="exec-alert-section-text">After an 18-month app redesign, HSBC took 4,765 DownDetector complaints in the first hour of their outage. The build-up looked exactly like this — rising app instability complaints with no single catastrophic trigger. Until there was one.</div>
       <div class="exec-alert-section-label">SEVERITY</div>
@@ -510,12 +510,12 @@ a { color: var(--blue); text-decoration: none; }
 </div>
 
 <!-- -- Journey Sentiment Row ----------------------------------------------- -->
-<div class="journey-row-header"><span class="journey-row-title">TOP 5 AFFECTED JOURNEYS</span><span class="journey-row-sub">last 7 days &middot; 4 of 7 with signal</span><span class="journey-row-legend"><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--red);">ACUTE</span> <span class="journey-legend-def">severe + new/worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:#B85450;">PERSISTENT</span> <span class="journey-legend-def">severe &ge; 7d, stable</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--amber);">DRIFT</span> <span class="journey-legend-def">no severe, trend worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--green);">STABLE</span> <span class="journey-legend-def">quiet</span></span><span class="journey-legend-item journey-legend-metric"><span class="journey-legend-def">severe day = &ge;1 P0/P1 review, last 30d</span></span></span></div><div class="journey-row"><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Log In to Account</div><div class="journey-cell-score" style="color:#cc3333;">32</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">12 reviews &middot; 14 severe days</div></div><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Open or Register Account</div><div class="journey-cell-score" style="color:#cc3333;">40</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">6 reviews &middot; 8 severe days</div></div><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Make a Payment</div><div class="journey-cell-score" style="color:#E8F4FA;">51</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">7 reviews &middot; 14 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--red);"><div class="journey-cell-name">Transfer Money</div><div class="journey-cell-score" style="color:#E8F4FA;">84</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--red);">ACUTE</span></div><div class="journey-cell-submeta">5 reviews &middot; 6 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--green);"><div class="journey-cell-name">Check Balance or Statement</div><div class="journey-cell-score" style="color:#E8F4FA;">78</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--green);">STABLE</span></div><div class="journey-cell-submeta">12 reviews &middot; 1 severe day</div></div></div>
+<div class="journey-row-header"><span class="journey-row-title">TOP 5 AFFECTED JOURNEYS</span><span class="journey-row-sub">last 7 days &middot; 4 of 8 with signal</span><span class="journey-row-legend"><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--red);">ACUTE</span> <span class="journey-legend-def">severe + new/worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:#B85450;">PERSISTENT</span> <span class="journey-legend-def">severe &ge; 7d, stable</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--amber);">DRIFT</span> <span class="journey-legend-def">no severe, trend worsening</span></span><span class="journey-legend-item"><span class="journey-legend-label" style="color:var(--green);">STABLE</span> <span class="journey-legend-def">quiet</span></span><span class="journey-legend-item journey-legend-metric"><span class="journey-legend-def">severe day = &ge;1 P0/P1 review, last 30d</span></span></span></div><div class="journey-row"><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Log In to Account</div><div class="journey-cell-score" style="color:#cc3333;">37</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">15 reviews &middot; 14 severe days</div></div><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Open or Register Account</div><div class="journey-cell-score" style="color:#E8F4FA;">50</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">8 reviews &middot; 7 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--green);"><div class="journey-cell-name">Check Balance or Statement</div><div class="journey-cell-score" style="color:#E8F4FA;">81</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--green);">STABLE</span></div><div class="journey-cell-submeta">15 reviews &middot; 1 severe day</div></div><div class="journey-cell" style="border-top:3px solid #B85450;"><div class="journey-cell-name">Make a Payment</div><div class="journey-cell-score" style="color:#E8F4FA;">55</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:#B85450;">PERSISTENT</span></div><div class="journey-cell-submeta">8 reviews &middot; 13 severe days</div></div><div class="journey-cell" style="border-top:3px solid var(--green);"><div class="journey-cell-name">Get Support</div><div class="journey-cell-score" style="color:#E8F4FA;">66</div><div class="journey-cell-meta"><span class="traj-icon" style="color:#7AACBF;">→</span><span class="journey-status-label" style="color:var(--green);">STABLE</span></div><div class="journey-cell-submeta">14 reviews &middot; 1 severe day</div></div></div>
 
 <!-- -- Body: Left + Right Columns ------------------------------------------ -->
 <div class="body-wrapper">
   <div class="left-col">
-    <div class="metrics-strip"><div class="metric-card"><div class="metric-value" style="color:var(--red);">3</div><div class="metric-label">Needs Attention</div><div class="metric-sub">REGRESSION journeys</div></div><div class="metric-card"><div class="metric-value" style="color:var(--amber);">1</div><div class="metric-label">Watch</div><div class="metric-sub">WATCH journeys</div></div><div class="metric-card"><div class="metric-value" style="color:var(--green);">1</div><div class="metric-label">Performing Well</div><div class="metric-sub">across all sources</div></div></div>
+    <div class="metrics-strip"><div class="metric-card"><div class="metric-value" style="color:var(--red);">3</div><div class="metric-label">Needs Attention</div><div class="metric-sub">REGRESSION journeys</div></div><div class="metric-card"><div class="metric-value" style="color:var(--amber);">0</div><div class="metric-label">Watch</div><div class="metric-sub">WATCH journeys</div></div><div class="metric-card"><div class="metric-value" style="color:var(--green);">2</div><div class="metric-label">Performing Well</div><div class="metric-sub">across all sources</div></div></div>
     
 <div class="journey-card" style="border-left:3px solid var(--red);">
   <div class="card-header">
@@ -525,17 +525,17 @@ a { color: var(--blue); text-decoration: none; }
   </div>
   <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
   <div class="verdict-label">VERDICT</div>
-  <div class="verdict-text">App Not Opening -- 5 complete-block signals, volume stable.</div>
+  <div class="verdict-text">App Not Opening -- 6 complete-block signals, volume stable.</div>
   <div class="version-delta-row">
     <span class="version-label">v—</span>
     <code class="version-delta" style="color:#6b7088;">— no baseline</code>
   </div>
   <div class="signal-counts">
-    <span class="sig-count sig-p1">P1: 5</span>
+    <span class="sig-count sig-p1">P1: 6</span>
     <span class="sig-count sig-p2">P2: 1</span>
   </div>
   
-  <div class="market-note">Market signal analysis — public app store data - 1.85 avg rating</div>
+  <div class="market-note">Market signal analysis — public app store data - 1.70 avg rating</div>
 </div>
 
 <div class="journey-card" style="border-left:3px solid var(--green);">
@@ -546,22 +546,43 @@ a { color: var(--blue); text-decoration: none; }
   </div>
   <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
   <div class="verdict-label">VERDICT</div>
-  <div class="verdict-text">Feature Broken -- 30 signals, trend improving.</div>
+  <div class="verdict-text">Feature Broken -- 37 signals, trend improving.</div>
   <div class="version-delta-row">
     <span class="version-label">v—</span>
     <code class="version-delta" style="color:#6b7088;">— no baseline</code>
   </div>
   <div class="signal-counts">
     <span class="sig-count sig-p1">P1: 0</span>
-    <span class="sig-count sig-p2">P2: 30</span>
+    <span class="sig-count sig-p2">P2: 37</span>
   </div>
   
-  <div class="market-note">Market signal analysis — public app store data - 2.60 avg rating</div>
+  <div class="market-note">Market signal analysis — public app store data - 2.70 avg rating</div>
 </div>
 
 <div class="journey-card" style="border-left:3px solid var(--red);">
   <div class="card-header">
     <span class="rank-num">#3</span>
+    <span class="journey-name">Login Failed</span>
+    <span class="badge" style="color:var(--red);background:#2a0a0a;">REGRESSION</span>
+  </div>
+  <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
+  <div class="verdict-label">VERDICT</div>
+  <div class="verdict-text">Login Failed -- 1 complete-block signals, volume stable.</div>
+  <div class="version-delta-row">
+    <span class="version-label">v—</span>
+    <code class="version-delta" style="color:#6b7088;">— no baseline</code>
+  </div>
+  <div class="signal-counts">
+    <span class="sig-count sig-p1">P1: 4</span>
+    <span class="sig-count sig-p2">P2: 0</span>
+  </div>
+  
+  <div class="market-note">Market signal analysis — public app store data - 1.75 avg rating</div>
+</div>
+
+<div class="journey-card" style="border-left:3px solid var(--red);">
+  <div class="card-header">
+    <span class="rank-num">#4</span>
     <span class="journey-name">App Crashing</span>
     <span class="badge" style="color:var(--red);background:#2a0a0a;">REGRESSION</span>
   </div>
@@ -580,46 +601,25 @@ a { color: var(--blue); text-decoration: none; }
   <div class="market-note">Market signal analysis — public app store data - 1.00 avg rating</div>
 </div>
 
-<div class="journey-card" style="border-left:3px solid var(--red);">
-  <div class="card-header">
-    <span class="rank-num">#4</span>
-    <span class="journey-name">Payment Failed</span>
-    <span class="badge" style="color:var(--red);background:#2a0a0a;">REGRESSION</span>
-  </div>
-  <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
-  <div class="verdict-label">VERDICT</div>
-  <div class="verdict-text">Payment Failed -- 1 complete-block signals, volume stable.</div>
-  <div class="version-delta-row">
-    <span class="version-label">v—</span>
-    <code class="version-delta" style="color:#6b7088;">— no baseline</code>
-  </div>
-  <div class="signal-counts">
-    <span class="sig-count sig-p1">P1: 2</span>
-    <span class="sig-count sig-p2">P2: 0</span>
-  </div>
-  
-  <div class="market-note">Market signal analysis — public app store data - 1.50 avg rating</div>
-</div>
-
-<div class="journey-card" style="border-left:3px solid var(--amber);">
+<div class="journey-card" style="border-left:3px solid var(--green);">
   <div class="card-header">
     <span class="rank-num">#5</span>
-    <span class="journey-name">Login Failed</span>
-    <span class="badge" style="color:var(--amber);background:#1e1500;">WATCH</span>
+    <span class="journey-name">Customer Support Failure</span>
+    <span class="badge" style="color:var(--green);background:#0a1e10;">PERFORMING WELL</span>
   </div>
   <div class="derived-note">SIGNAL ANALYSIS — INFERENCE PENDING</div>
   <div class="verdict-label">VERDICT</div>
-  <div class="verdict-text">Login Failed -- 2 friction signals, monitoring required.</div>
+  <div class="verdict-text">Customer Support Failure -- 8 signals, minor issues only.</div>
   <div class="version-delta-row">
     <span class="version-label">v—</span>
     <code class="version-delta" style="color:#6b7088;">— no baseline</code>
   </div>
   <div class="signal-counts">
-    <span class="sig-count sig-p1">P1: 2</span>
-    <span class="sig-count sig-p2">P2: 0</span>
+    <span class="sig-count sig-p1">P1: 0</span>
+    <span class="sig-count sig-p2">P2: 8</span>
   </div>
   
-  <div class="market-note">Market signal analysis — public app store data - 1.00 avg rating</div>
+  <div class="market-note">Market signal analysis — public app store data - 2.00 avg rating</div>
 </div>
 
   </div>
@@ -718,7 +718,7 @@ a { color: var(--blue); text-decoration: none; }
   <span class="footer-sep">-</span>
   <span class="footer-item">Article Zero</span>
   <span class="footer-sep">-</span>
-  <span class="footer-item">Published 2026-05-31 06:37 UTC</span>
+  <span class="footer-item">Published 2026-06-01 06:42 UTC</span>
 </div>
 
 <!-- -- Ask Sonar Button ----------------------------------------------------- -->
