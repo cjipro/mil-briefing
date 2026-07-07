@@ -13,4 +13,5 @@ Live notes captured during Adobe Summit. Add sessions/observations below as they
 - 1:1 personalisation at scale
 - Journeys, audience, channels, products
 - Brand visibility, customer engagement, content supply chain
+- CX enterprise coworker
 
