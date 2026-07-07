@@ -12,4 +12,5 @@ Live notes captured during Adobe Summit. Add sessions/observations below as they
 - Explosion of content
 - 1:1 personalisation at scale
 - Journeys, audience, channels, products
+- Brand visibility, customer engagement, content supply chain
 
