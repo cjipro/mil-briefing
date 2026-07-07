@@ -11,4 +11,5 @@ Live notes captured during Adobe Summit. Add sessions/observations below as they
 - Velocity of agentic AI innovation
 - Explosion of content
 - 1:1 personalisation at scale
+- Journeys, audience, channels, products
 
